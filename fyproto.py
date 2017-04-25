@@ -5,6 +5,17 @@ import crc16
 LONG_FORM = 0xaa55
 SHORT_FORM = 0x5aa5
 
+# LONG_FORM commands
+#   cmd00  Init / Firmware version
+
+# SHORT_FORM commands
+#   cmd01  Control data?
+#   cmd03  On/Off
+#   cmd06  Get 16-bit value from 8-bit config space
+#   cmd08  Set 16-bit value in 8-bit config space
+#   cmd09  Unknown get, 12 bytes
+#   cmd0b  Init PC control handshake
+#   cmd0d  IMU data?
 
 class Packet:
     formats = {
