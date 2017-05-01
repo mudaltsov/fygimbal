@@ -219,8 +219,11 @@ class GimbalPort:
             if packet.target == 0x03:
                 self.responseQueue.put(packet)
 
-    def saveParams(self, target):
+    def saveParams(self, target, timeout=None):
         self.send(Packet(target=target, command=0x05, data=bytes([0x00])))
+        packet = self.waitResponse(command=0x05, timeout=timeout)
+        if struct.unpack('<B', packet.data)[0] != target:
+            raise IOError("Failed to save parameters, response %r" % packet)
 
     def getParam(self, target, number, format='h', timeout=None):
         self.send(Packet(target=target, command=0x06, data=bytes([ number ])))
