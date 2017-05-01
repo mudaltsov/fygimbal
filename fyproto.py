@@ -3,6 +3,7 @@ import binascii
 import threading
 import traceback
 import queue
+import time
 
 import serial
 import crc16
@@ -121,7 +122,7 @@ class TransmitThread(threading.Thread):
                 for p in self.idlePackets:
                     self.port.write(p.pack())
             else:
-                # print("TX %s" % p)
+                print("TX %s" % p)
                 self.port.write(p.pack())
 
 
@@ -145,14 +146,20 @@ class ReceiverThread(threading.Thread):
                     traceback.print_exc()
 
 
+class Timeout(Exception):
+    pass
+
+
 class GimbalPort:
     transmitThreadClass = TransmitThread
     receiverThreadClass = ReceiverThread
 
-    def __init__(self, port='/dev/ttyAMA0', baudrate=115200, hz=75.0):
+    def __init__(self, port='/dev/ttyAMA0', baudrate=115200, hz=75.0, timeout=2.0):
+        self.timeout = timeout
         self.version = None
         self.connected = False
-        self.paramCallbackQueue = queue.Queue(1)
+        self.connectedCV = threading.Condition()
+        self.responseQueue = queue.Queue()
         self.port = serial.Serial(port, baudrate=baudrate)
         self.tx = self.transmitThreadClass(self.port, hz=hz)
         self.rx = self.receiverThreadClass(self.port, self.receive)
@@ -169,9 +176,32 @@ class GimbalPort:
     def send(self, packet):
         self.tx.queue.put(packet)
 
+    def waitConnect(self, timeout=None):
+        timeout = timeout or self.timeout
+        with self.connectedCV:
+            self.connectedCV.wait_for(lambda: self.connected, timeout=timeout)
+        if not self.connected:
+            raise Timeout()
+
+    def waitResponse(self, command, timeout=None):
+        timeout = timeout or self.timeout
+        deadline = timeout and (time.time() + timeout)
+        try:
+            while True:
+                timeout = deadline and max(0, deadline - time.time())
+                packet = self.responseQueue.get(timeout=timeout)
+                if packet.command == command:
+                    return packet
+                print("Ignored response %r" % packet)
+        except queue.Empty:
+            raise Timeout()
+
     def receive(self, packet):
+        print("RX %s" % packet)
+
         if packet.framing == LONG_FORM:
             if packet.command == 0x00:
+                self.cmd00 = packet
                 _unknown, version = struct.unpack("<HH", packet.data)
                 self.version = version / 100.0
                 return
@@ -180,35 +210,22 @@ class GimbalPort:
             if packet.command == 0x0B:
                 print("Responding to init packet")
                 self.send(Packet(target=0, command=0x0b, data=bytes([0x01])))
-                self.connected = True
+                with self.connectedCV:
+                    self.connected = True
+                    self.connectedCV.notify_all()
                 return
 
-            if packet.command == 0x06:
-                self.paramCallbackQueue.get(block=False)(struct.unpack("<h", packet.data)[0])
-                return
+            # Give the main thread a chance to handle other t=03 packets
+            if packet.target == 0x03:
+                self.responseQueue.put(packet)
 
-            if packet.command == 0x05:
-                print("Response from saving, %02x" % packet.data[0])
-                return
-
-        # Other packets, log them raw
-        print("RX %s" % packet)
-
-    def saveParams(self, target=2):
+    def saveParams(self, target):
         self.send(Packet(target=target, command=0x05, data=bytes([0x00])))
 
-    def getParamList(self, numbers, callback, target=2):
-        results = [None] * len(numbers)
-        for i, n in enumerate(numbers):
-            def cb(value, i=i):
-                results[i] = value
-                if i + 1 == len(numbers):
-                    callback(results)
-            self.getParam(n, cb, target)
-
-    def getParam(self, number, callback, target=2):
-        self.paramCallbackQueue.put(callback)
+    def getParam(self, target, number, format='h', timeout=None):
         self.send(Packet(target=target, command=0x06, data=bytes([ number ])))
+        packet = self.waitResponse(command=0x06, timeout=timeout)
+        return struct.unpack('<' + format, packet.data)[0]
 
-    def setParam(self, number, value, target=2):
-        self.send(Packet(target=target, command=0x08, data=struct.pack("<BBh", number, 0, value)))
+    def setParam(self, target, number, value, format='h'):
+        self.send(Packet(target=target, command=0x08, data=struct.pack('<BB' + format, number, 0, value)))
