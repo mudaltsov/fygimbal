@@ -1,5 +1,10 @@
 #!/usr/bin/env python3
-import fyproto
+#
+# DANGEROUS. Run this at your own risk. Overwrites all parameters with defaults captured from
+# one particular working gimbal. May have other patches applied; check the git history for the
+# full story. Always back up parameters from your gimbal first.
+
+from fyserial import GimbalPort
 
 params = [
     [-1, -1, -7683],                   # 0x00           |
@@ -132,7 +137,7 @@ params = [
     [115, 115, 115],                   # 0x7f           |         Firmware version associated with parameter set
 ]
 
-gimbal = fyproto.GimbalPort()
+gimbal = GimbalPort()
 gimbal.waitConnect(timeout=10)
 print("Connected, version %s" % gimbal.version)
 

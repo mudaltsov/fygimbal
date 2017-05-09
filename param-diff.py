@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-import fyproto
+from fyserial import GimbalPort
 
-gimbal = fyproto.GimbalPort(verbose=False)
+gimbal = GimbalPort(verbose=False)
 
 slots = [None] * 128
 nRange = range(128)

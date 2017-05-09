@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+#
+# Send arbitrary packets in the Feiyu gimbal protocol,
+# optionally wait for all incoming packets and display them.
 
 import fyproto
 import serial

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-import fyproto
+from fyserial import GimbalPort
 
-gimbal = fyproto.GimbalPort()
+gimbal = GimbalPort()
 
 slots = [ gimbal.getVectorParam(n) for n in range(128) ]
 
