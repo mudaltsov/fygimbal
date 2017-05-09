@@ -136,14 +136,9 @@ gimbal = fyproto.GimbalPort()
 gimbal.waitConnect(timeout=10)
 print("Connected, version %s" % gimbal.version)
 
-for n, values in enumerate(params):
-	for t, value in enumerate(values):
-		gimbal.setParam(target=t, number=n, value=value)
-		readback = gimbal.getParam(target=t, number=n)
-		# Also throttles outgoing data
-		print("Set t=%02x n=%02x to %d (read %d)" % (t, n, value, readback))
+for n, vec in enumerate(params):
+    gimbal.setVectorParam(n, vec)
+    readback = gimbal.getVectorParam(n)  # Also throttles outgoing data
+    print("Set n=%02x to %r (read %r)" % (n, vec, readback))
 
-for t in range(3):
-	gimbal.saveParams(target=t)
-	print("Saved params on MCU %d" % t)
-
+gimbal.saveParams()

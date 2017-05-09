@@ -100,13 +100,16 @@ class PacketReceiver:
             yield Packet(command, framing, target, data)
 
 
+class Timeout(Exception):
+    '''Timed out while waiting for a response from the gimbal'''
+    pass
+
+
 class TransmitThread(threading.Thread):
-    def __init__(self, port, hz, verbose=False):
+    def __init__(self, port, verbose=False):
         threading.Thread.__init__(self)
         self.port = port
         self.queue = queue.Queue()
-        self.idleInterval = 1.0 / hz
-        self.idlePackets = []
         self.running = True
         self.verbose = verbose
         self.setDaemon(True)
@@ -114,10 +117,9 @@ class TransmitThread(threading.Thread):
     def run(self):
         while self.running:
             try:
-                p = self.queue.get(timeout=self.idleInterval)
+                p = self.queue.get(timeout=1.0)
             except queue.Empty:
-                for p in self.idlePackets:
-                    self.port.write(p.pack())
+                pass
             else:
                 if self.verbose:
                     print("TX %s" % p)
@@ -139,30 +141,37 @@ class ReceiverThread(threading.Thread):
     def run(self):
         while self.running:
             for packet in self.receiver.parse(self.port.read(1)):
+                if self.verbose:
+                    print("RX %s" % packet)
                 try:
                     self.callback(packet)
                 except:
                     traceback.print_exc()
 
 
-class Timeout(Exception):
-    pass
-
-
 class GimbalPort:
+    '''High-level connection to a Feiyu Tech gimbal,
+       with background threads handling serial communication.
+       '''
     transmitThreadClass = TransmitThread
     receiverThreadClass = ReceiverThread
 
-    def __init__(self, port='/dev/ttyAMA0', baudrate=115200, hz=75.0, timeout=5.0, verbose=True):
-        self.timeout = timeout
+    axes = range(3)
+    transactionRetries = 15
+    transactionTimeout = 2.0
+    connectTimeout = 10.0
+
+    def __init__(self, port='/dev/ttyAMA0', baudrate=115200, verbose=True):
         self.verbose = verbose
         self.version = None
         self.connected = False
+
         self.connectedCV = threading.Condition()
         self.responseQueue = queue.Queue()
         self.port = serial.Serial(port, baudrate=baudrate)
-        self.tx = self.transmitThreadClass(self.port, hz=hz, verbose=self.verbose)
-        self.rx = self.receiverThreadClass(self.port, self.receive, verbose=self.verbose)
+
+        self.tx = self.transmitThreadClass(self.port, verbose=self.verbose)
+        self.rx = self.receiverThreadClass(self.port, callback=self._receive, verbose=self.verbose)
         self.rx.start()
         self.tx.start()
 
@@ -174,17 +183,46 @@ class GimbalPort:
         self.port.close()
 
     def send(self, packet):
+        self.waitConnect()
         self.tx.queue.put(packet)
 
     def waitConnect(self, timeout=None):
-        timeout = timeout or self.timeout
+        if self.connected:
+            return
+        timeout = timeout or self.connectTimeout
         with self.connectedCV:
             self.connectedCV.wait_for(lambda: self.connected, timeout=timeout)
         if not self.connected:
             raise Timeout()
 
-    def waitResponse(self, command, timeout=None):
-        timeout = timeout or self.timeout
+    def _receive(self, packet):
+        '''One packet received by the ReceiverThread.
+           This immediately handles some packets,
+           and queues responses to be picked up later by waitResponse().
+           '''
+        if packet.framing == LONG_FORM:
+            if packet.command == 0x00:
+                self.cmd00 = packet
+                _unknown, version = struct.unpack("<HH", packet.data)
+                self.version = version / 100.0
+                return
+
+        if packet.framing == SHORT_FORM:
+            if packet.command == 0x0B:
+                if self.verbose:
+                    print("Connecting to gimbal, firmware version %s" % self.version)
+                with self.connectedCV:
+                    self.connected = True
+                    self.send(Packet(target=0, command=0x0b, data=bytes([0x01])))
+                    self.connectedCV.notify_all()
+                return
+
+            if packet.target == 0x03:
+                self.responseQueue.put(packet)
+                return
+
+    def waitResponse(self, command, timeout):
+        '''Wait for a response to the indicated command, with a timeout.'''
         deadline = timeout and (time.time() + timeout)
         try:
             while True:
@@ -197,41 +235,36 @@ class GimbalPort:
         except queue.Empty:
             raise Timeout()
 
-    def receive(self, packet):
-        if self.verbose:
-            print("RX %s" % packet)
+    def transaction(self, packet, timeout=None, retries=None):
+        '''Send a packet, and wait for the corresponding response, with retry on timeout'''
+        self.waitConnect()
+        timeout = timeout or self.transactionTimeout
+        retries = retries or self.transactionRetries
+        while retries >= 0:
+            try:
+                self.send(packet)
+                return self.waitResponse(packet.command, timeout=timeout)
+            except Timeout:
+                retries -= 1
 
-        if packet.framing == LONG_FORM:
-            if packet.command == 0x00:
-                self.cmd00 = packet
-                _unknown, version = struct.unpack("<HH", packet.data)
-                self.version = version / 100.0
-                return
+    def saveParams(self, targets=axes):
+        for target in targets:
+            r = self.transaction(Packet(target=target, command=0x05, data=b'\x00'))
+            if struct.unpack('<B', r.data)[0] != target:
+                raise IOError("Failed to save parameters, response %r" % packet)
+            if self.verbose:
+                print("Saved params on MCU %d" % target)
 
-        if packet.framing == SHORT_FORM:
-            if packet.command == 0x0B:
-                if self.verbose:
-                    print("Responding to init packet")
-                self.send(Packet(target=0, command=0x0b, data=bytes([0x01])))
-                with self.connectedCV:
-                    self.connected = True
-                    self.connectedCV.notify_all()
-                return
+    def getParam(self, target, number, fmt='h'):
+        r = self.transaction(Packet(target=target, command=0x06, data=struct.pack('B', number)))
+        return struct.unpack('<' + fmt, r.data)[0]
 
-            # Give the main thread a chance to handle other t=03 packets
-            if packet.target == 0x03:
-                self.responseQueue.put(packet)
+    def setParam(self, target, number, value, fmt='h'):
+        self.send(Packet(target=target, command=0x08, data=struct.pack('<BB' + fmt, number, 0, value)))
 
-    def saveParams(self, target, timeout=None):
-        self.send(Packet(target=target, command=0x05, data=bytes([0x00])))
-        packet = self.waitResponse(command=0x05, timeout=timeout)
-        if struct.unpack('<B', packet.data)[0] != target:
-            raise IOError("Failed to save parameters, response %r" % packet)
+    def getVectorParam(self, number, targets=axes):
+        return tuple(self.getParam(t, number) for t in targets)
 
-    def getParam(self, target, number, format='h', timeout=None):
-        self.send(Packet(target=target, command=0x06, data=bytes([ number ])))
-        packet = self.waitResponse(command=0x06, timeout=timeout)
-        return struct.unpack('<' + format, packet.data)[0]
-
-    def setParam(self, target, number, value, format='h'):
-        self.send(Packet(target=target, command=0x08, data=struct.pack('<BB' + format, number, 0, value)))
+    def setVectorParam(self, number, vec, targets=axes):
+        for i, t in enumerate(targets):
+            self.setParam(t, number, vec[i])

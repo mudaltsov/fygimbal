@@ -9,7 +9,7 @@ def hexint(x):
     return int(x, 16)
 
 parser = argparse.ArgumentParser(description='Talk to the Feiyu Tech gimbal')
-parser.add_argument('--port', default='/dev/ttyUSB0')
+parser.add_argument('--port', default='/dev/ttyAMA0')
 parser.add_argument('--framing', type=hexint, default=fyproto.SHORT_FORM)
 parser.add_argument('--command', type=hexint, default=None)
 parser.add_argument('--target', type=hexint, default=0)
