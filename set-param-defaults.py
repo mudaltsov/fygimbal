@@ -1,4 +1,4 @@
-#!/usr/bin/env python3 
+#!/usr/bin/env python3
 import fyproto
 
 params = [
@@ -6,12 +6,12 @@ params = [
     [0, 0, 0],                         # 0x01
     [0, 2, 2],                         # 0x02
     [0, 0, 59],                        # 0x03
-    [0, 0, 0],                         # 0x04
+    [0, 0, 0],                         # 0x04       Gyro angular velocity
     [0, 0, 0],                         # 0x05
-    [0, 1294, -2232],                  # 0x06
+    [0, 1294, -2232],                  # 0x06       Magnetic-related, unknown sensor reading
     [0, 117, 119],                     # 0x07
-    [0, 0, 0],                         # 0x08
-    [0, -3754, -296],                  # 0x09
+    [0, 0, 0],                         # 0x08       Set to 0 by windows software after motor powerup and write to 0x67
+    [0, -3754, -296],                  # 0x09       Gyro angle reading?
     [0, 0, 0],                         # 0x0a
     [500, 500, 500],                   # 0x0b
     [500, 500, 500],                   # 0x0c
@@ -46,7 +46,7 @@ params = [
     [200, 200, 200],                   # 0x29
     [20, 20, 20],                      # 0x2a
     [20000, 20000, 20000],             # 0x2b
-    [2945, 2529, 2912],                # 0x2c
+    [2945, 2529, 2912],                # 0x2c       Cooked angles from magnetic sensors
     [30, 30, 30],                      # 0x2d
     [-32768, -32768, -32768],          # 0x2e
     [0, 0, 0],                         # 0x2f
@@ -78,8 +78,8 @@ params = [
     [0, 0, 288],                       # 0x49
     [0, 0, 0],                         # 0x4a
     [0, 0, 0],                         # 0x4b
-    [17, -4042, 0],                    # 0x4c
-    [-400, 3812, 2928],                # 0x4d
+    [17, -4042, 0],                    # 0x4c         Magnetic related sensor value?
+    [-400, 3812, 2928],                # 0x4d         Stored center location
     [22000, 22000, 22000],             # 0x4e
     [50, 50, 50],                      # 0x4f
     [2000, 2000, 2000],                # 0x50
@@ -103,9 +103,9 @@ params = [
     [437, 437, 437],                   # 0x62
     [0, 0, 0],                         # 0x63
     [1696, 2174, 2648],                # 0x64
-    [900, 900, 900],                   # 0x65
+    [900, 900, 900],                   # 0x65         Heading follow rate (set by Windows app)
     [0, 0, 0],                         # 0x66
-    [0, 0, 0],                         # 0x67
+    [0, 0, 0],                         # 0x67         Control loop on/off? Set to 1 by windows software after motor poweron
     [0, 0, 0],                         # 0x68
     [0, 0, 112],                       # 0x69
     [0, 0, 0],                         # 0x6a
@@ -129,7 +129,7 @@ params = [
     [0, 0, 0],                         # 0x7c
     [0, 0, 0],                         # 0x7d
     [0, 0, 0],                         # 0x7e
-    [115, 115, 115],                   # 0x7f
+    [115, 115, 115],                   # 0x7f         Firmware version associated with parameter set
 ]
 
 gimbal = fyproto.GimbalPort()
