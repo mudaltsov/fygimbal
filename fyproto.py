@@ -98,20 +98,22 @@ class PacketReceiver:
 
             calc_crc = self.packetClass.crc(framing, header + data)
             if rx_crc != calc_crc:
-                print("CRC mismatch, received %04x and expected %04x" % (rx_crc, calc_crc))
+                if self.verbose:
+                    print("CRC mismatch, received %04x and expected %04x" % (rx_crc, calc_crc))
                 continue
 
             yield Packet(command, framing, target, data)
 
 
 class TransmitThread(threading.Thread):
-    def __init__(self, port, hz):
+    def __init__(self, port, hz, verbose=False):
         threading.Thread.__init__(self)
         self.port = port
         self.queue = queue.Queue()
         self.idleInterval = 1.0 / hz
         self.idlePackets = []
         self.running = True
+        self.verbose = verbose
         self.setDaemon(True)
 
     def run(self):
@@ -122,18 +124,20 @@ class TransmitThread(threading.Thread):
                 for p in self.idlePackets:
                     self.port.write(p.pack())
             else:
-                print("TX %s" % p)
+                if self.verbose:
+                    print("TX %s" % p)
                 self.port.write(p.pack())
 
 
 class ReceiverThread(threading.Thread):
     receiverClass = PacketReceiver
 
-    def __init__(self, port, callback):
+    def __init__(self, port, callback, verbose=False):
         threading.Thread.__init__(self)
         self.port = port
         self.callback = callback
         self.running = True
+        self.verbose = verbose
         self.receiver = self.receiverClass()
         self.setDaemon(True)
 
@@ -154,15 +158,16 @@ class GimbalPort:
     transmitThreadClass = TransmitThread
     receiverThreadClass = ReceiverThread
 
-    def __init__(self, port='/dev/ttyAMA0', baudrate=115200, hz=75.0, timeout=2.0):
+    def __init__(self, port='/dev/ttyAMA0', baudrate=115200, hz=75.0, timeout=5.0, verbose=True):
         self.timeout = timeout
+        self.verbose = verbose
         self.version = None
         self.connected = False
         self.connectedCV = threading.Condition()
         self.responseQueue = queue.Queue()
         self.port = serial.Serial(port, baudrate=baudrate)
-        self.tx = self.transmitThreadClass(self.port, hz=hz)
-        self.rx = self.receiverThreadClass(self.port, self.receive)
+        self.tx = self.transmitThreadClass(self.port, hz=hz, verbose=self.verbose)
+        self.rx = self.receiverThreadClass(self.port, self.receive, verbose=self.verbose)
         self.rx.start()
         self.tx.start()
 
@@ -192,12 +197,14 @@ class GimbalPort:
                 packet = self.responseQueue.get(timeout=timeout)
                 if packet.command == command:
                     return packet
-                print("Ignored response %r" % packet)
+                if self.verbose:
+                    print("Ignored response %r" % packet)
         except queue.Empty:
             raise Timeout()
 
     def receive(self, packet):
-        print("RX %s" % packet)
+        if self.verbose:
+            print("RX %s" % packet)
 
         if packet.framing == LONG_FORM:
             if packet.command == 0x00:
@@ -208,7 +215,8 @@ class GimbalPort:
 
         if packet.framing == SHORT_FORM:
             if packet.command == 0x0B:
-                print("Responding to init packet")
+                if self.verbose:
+                    print("Responding to init packet")
                 self.send(Packet(target=0, command=0x0b, data=bytes([0x01])))
                 with self.connectedCV:
                     self.connected = True
