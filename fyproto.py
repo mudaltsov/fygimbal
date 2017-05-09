@@ -4,9 +4,7 @@ import threading
 import traceback
 import queue
 import time
-
 import serial
-import crc16
 
 LONG_FORM = 0xaa55
 SHORT_FORM = 0x5aa5
@@ -53,7 +51,8 @@ class Packet:
 
     @classmethod
     def crc(cls, framing, data):
-        return crc16.crc16xmodem(data, cls.formats[framing]['initial_crc_value'])
+        '''CRC-16 with an initial value that depends on the packet format'''
+        return binascii.crc_hqx(data, cls.formats[framing]['initial_crc_value'])
 
     def format_option(self, name, default=None):
         return self.formats[self.framing].get(name, default)
