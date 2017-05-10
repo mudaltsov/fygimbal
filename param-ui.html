@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="lib/smoothie.js"></script>
+	<script type="text/javascript">
+
+		var socket = new WebSocket("ws://tucoflyer.local:8893");
+		var paramList = [];
+		var paramSeries = {};
+
+		socket.addEventListener('open', function (event) {
+			var commands = [];
+			for (param of paramList) {
+				for (var target of [0,1,2]) {
+					commands.push(['get', target, param].join(' '));
+				}
+			}
+			socket.send(commands.join('\n'));
+		});
+
+		socket.addEventListener('message', function (event) {
+			var tokens = event.data.split(" ");
+			if (tokens[0] == 'value') {
+				var target = parseInt(tokens[1], 0);
+				var number = parseInt(tokens[2], 0);
+				var value = parseInt(tokens[3], 0);
+				var series = paramSeries[number];
+				if (series) {
+					series[target].append(new Date().getTime(), value);
+					socket.send(['get', target, number].join(' '));
+ 				}
+			}
+		});
+
+		function uiSetup() {
+			for (canvas of document.querySelectorAll('canvas.param')) {
+
+				var param = parseInt(canvas.dataset['param'], 0);
+				paramList.push(param);
+
+				var chart = new SmoothieChart();
+				var series = [
+					new TimeSeries(),
+					new TimeSeries(),
+					new TimeSeries(),
+				];
+				paramSeries[param] = series;
+
+				chart.addTimeSeries(series[0], { strokeStyle: 'rgba(255, 0, 0, 1)', lineWidth: 3 });
+				chart.addTimeSeries(series[1], { strokeStyle: 'rgba(0, 255, 0, 1)', lineWidth: 3 });
+				chart.addTimeSeries(series[2], { strokeStyle: 'rgba(0, 0, 255, 1)', lineWidth: 3 });
+
+				chart.streamTo(canvas, 500);
+			}
+		}
+
+	</script>
+</head>
+<body onload="uiSetup()">
+<table>
+
+<tr><td><canvas class="param" width="800" height="160" data-param="0x02"></canvas></td><td> 02 </td></tr>
+<tr><td><canvas class="param" width="800" height="160" data-param="0x03"></canvas></td><td> 03 </td></tr>
+<tr><td><canvas class="param" width="800" height="160" data-param="0x04"></canvas></td><td> 04 </td></tr>
+<tr><td><canvas class="param" width="800" height="160" data-param="0x06"></canvas></td><td> 06 </td></tr>
+<tr><td><canvas class="param" width="800" height="160" data-param="0x07"></canvas></td><td> 07 </td></tr>
+<tr><td><canvas class="param" width="800" height="160" data-param="0x08"></canvas></td><td> 08 </td></tr>
+<tr><td><canvas class="param" width="800" height="160" data-param="0x09"></canvas></td><td> 09 </td></tr>
+<tr><td><canvas class="param" width="800" height="160" data-param="0x28"></canvas></td><td> 28 </td></tr>
+<tr><td><canvas class="param" width="800" height="160" data-param="0x2c"></canvas></td><td> 2C </td></tr>
+<tr><td><canvas class="param" width="800" height="160" data-param="0x48"></canvas></td><td> 48 </td></tr>
+<tr><td><canvas class="param" width="800" height="160" data-param="0x4a"></canvas></td><td> 4A </td></tr>
+<tr><td><canvas class="param" width="800" height="160" data-param="0x4c"></canvas></td><td> 4C </td></tr>
+<tr><td><canvas class="param" width="800" height="160" data-param="0x66"></canvas></td><td> 66 </td></tr>
+<tr><td><canvas class="param" width="800" height="160" data-param="0x6f"></canvas></td><td> 6F </td></tr>
+<tr><td><canvas class="param" width="800" height="160" data-param="0x70"></canvas></td><td> 70 </td></tr>
+
+</table>
+</body>
+</html>
