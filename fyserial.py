@@ -115,6 +115,10 @@ class GimbalPort:
         except Timeout:
             return False
 
+    def flush(self, timeout=None):
+        # Perform an unnecessary 'get' to ensure all other commands have been seen
+        self.getParam(target=0, number=0x7f, retries=0, timeout=timeout)
+
     def send(self, packet):
         self.waitConnect()
         self.tx.queue.put(packet)
