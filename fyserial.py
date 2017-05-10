@@ -80,6 +80,7 @@ class GimbalPort:
         self.connectedCV = threading.Condition()
         self.responseQueue = queue.Queue()
         self.port = serial.Serial(port, baudrate=baudrate)
+        self._transactionLock = threading.Lock()
 
         self.tx = self.transmitThreadClass(self.port, verbose=self.verbose)
         self.rx = self.receiverThreadClass(self.port, callback=self._receive, verbose=self.verbose)
@@ -130,7 +131,7 @@ class GimbalPort:
     def _receive(self, packet):
         '''One packet received by the ReceiverThread.
            This immediately handles some packets,
-           and queues responses to be picked up later by waitResponse().
+           and queues responses to be picked up later by _waitResponse().
            '''
         if packet.framing == fyproto.LONG_FORM:
             if packet.command == 0x00:
@@ -153,7 +154,7 @@ class GimbalPort:
                 self.responseQueue.put(packet)
                 return
 
-    def waitResponse(self, command, timeout):
+    def _waitResponse(self, command, timeout):
         '''Wait for a response to the indicated command, with a timeout.'''
         deadline = timeout and (time.time() + timeout)
         try:
@@ -176,8 +177,9 @@ class GimbalPort:
             retries = self.transactionRetries
         while True:
             try:
-                self.send(packet)
-                return self.waitResponse(packet.command, timeout=timeout)
+                with self._transactionLock:
+                    self.send(packet)
+                    return self._waitResponse(packet.command, timeout=timeout)
             except Timeout:
                 retries -= 1
                 if retries < 0:

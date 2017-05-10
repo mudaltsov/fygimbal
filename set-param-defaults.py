@@ -15,7 +15,7 @@ params = [
     [0, 0, 0],                         # 0x05           |
     [0, 1294, -2232],                  # 0x06  dynamic  |       Magnetic-related, unknown sensor reading
     [0, 117, 119],                     # 0x07  dynamic  |       Version related?
-    [0, 0, 0],                         # 0x08  dynamic  |       Set to 0 by windows software after motor powerup and write to 0x67
+    [0, 0, 0],                         # 0x08  dynamic  |       Current heading?  Set to 0 after motor-on in windows sw. Roll axis locked to zero.
     [0, -3754, -296],                  # 0x09  dynamic  |       Gyro angle reading?
     [0, 0, 0],                         # 0x0a           |
     [500, 500, 500],                   # 0x0b           |
@@ -84,7 +84,7 @@ params = [
     [0, 0, 0],                         # 0x4a  dynamic  |         Rates?
     [0, 0, 0],                         # 0x4b           |
     [17, -4042, 0],                    # 0x4c  dynamic  |         Magnetic related sensor value?
-    [-400, 3812, 2928],                # 0x4d           |         Stored center location
+    [-400, 3812, 2928],                # 0x4d           |         Stored center location??
     [22000, 22000, 22000],             # 0x4e           |
     [50, 50, 50],                      # 0x4f           |
     [2000, 2000, 2000],                # 0x50           |
