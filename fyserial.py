@@ -73,10 +73,9 @@ class GimbalPort:
     transactionTimeout = 2.0
     connectTimeout = 10.0
 
-    def __init__(self, port='/dev/ttyAMA0', baudrate=115200, verbose=True):
+    def __init__(self, port='/dev/ttyAMA0', baudrate=115200, verbose=True, connected=None):
         self.verbose = verbose
         self.version = None
-        self.connected = False
 
         self.connectedCV = threading.Condition()
         self.responseQueue = queue.Queue()
@@ -87,12 +86,33 @@ class GimbalPort:
         self.rx.start()
         self.tx.start()
 
+        if connected is None:
+            self.connected = True
+            self.connected = self._testForExistingConnection()
+        else:
+            self.connected = connected
+        if self.verbose:
+            if self.connected:
+                print("Already connected to gimbal, version %s" % self.version)
+            else:
+                print("Waiting for gimbal to power on")
+
     def close(self):
         self.rx.running = False
         self.tx.running = False
         self.rx.join()
         self.tx.join()
         self.port.close()
+
+    def _testForExistingConnection(self):
+        if self.verbose:
+            print("Checking for existing connection")
+        try:
+            paramVersion = self.getParam(target=0, number=0x7f, retries=0, timeout=0.1)
+            self.version = self.version or (paramVersion / 100)
+            return True
+        except Timeout:
+            return False
 
     def send(self, packet):
         self.waitConnect()
@@ -150,32 +170,48 @@ class GimbalPort:
     def transaction(self, packet, timeout=None, retries=None):
         '''Send a packet, and wait for the corresponding response, with retry on timeout'''
         self.waitConnect()
-        timeout = timeout or self.transactionTimeout
-        retries = retries or self.transactionRetries
-        while retries >= 0:
+        if timeout is None:
+            timeout = self.transactionTimeout
+        if retries is None:
+            retries = self.transactionRetries
+        while True:
             try:
                 self.send(packet)
                 return self.waitResponse(packet.command, timeout=timeout)
             except Timeout:
                 retries -= 1
+                if retries < 0:
+                    raise
 
-    def saveParams(self, targets=axes):
+    def setMotors(self, enable, targets=axes):
+        # Not sure if order matters
+        for t in sorted(targets, reverse=True):
+            self.send(fyproto.Packet(target=t, command=0x03, data=struct.pack('B', enable)))
+
+        if enable:
+            # Unknown, this init happens in the windows app right after enabling motors
+            self.setParam(target=2, number=0x67, value=1)
+            self.setParam(target=2, number=0x08, value=0)
+
+    def saveParams(self, targets=axes, timeout=None, retries=None):
         for target in targets:
-            r = self.transaction(fyproto.Packet(target=target, command=0x05, data=b'\x00'))
+            p = fyproto.Packet(target=target, command=0x05, data=b'\x00')
+            r = self.transaction(p, timeout=timeout, retries=retries)
             if struct.unpack('<B', r.data)[0] != target:
                 raise IOError("Failed to save parameters, response %r" % packet)
             if self.verbose:
                 print("Saved params on MCU %d" % target)
 
-    def getParam(self, target, number, fmt='h'):
-        r = self.transaction(fyproto.Packet(target=target, command=0x06, data=struct.pack('B', number)))
+    def getParam(self, target, number, fmt='h', timeout=None, retries=None):
+        p = fyproto.Packet(target=target, command=0x06, data=struct.pack('B', number))
+        r = self.transaction(p, timeout=timeout, retries=retries)
         return struct.unpack('<' + fmt, r.data)[0]
 
     def setParam(self, target, number, value, fmt='h'):
         self.send(fyproto.Packet(target=target, command=0x08, data=struct.pack('<BB' + fmt, number, 0, value)))
 
-    def getVectorParam(self, number, targets=axes):
-        return tuple(self.getParam(t, number) for t in targets)
+    def getVectorParam(self, number, targets=axes, timeout=None, retries=None):
+        return tuple(self.getParam(t, number, timeout=timeout, retries=retries) for t in targets)
 
     def setVectorParam(self, number, vec, targets=axes):
         for i, t in enumerate(targets):
