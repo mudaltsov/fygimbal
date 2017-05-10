@@ -12,7 +12,7 @@ outfile = open('plain.bin', 'wb')
 header = infile.read(8)
 
 while True:
-    block = infile.read(512)
+    block = infile.read(1024)
     if not block:
         break
     outfile.write(AES.new(key, AES.MODE_CBC, iv).decrypt(block))
