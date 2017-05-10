@@ -97,10 +97,6 @@ body {
     font: 14px sans-serif;
 }
 
-input.param {
-    width: 100%;
-}
-
 label.motors {
     border: 2px solid #f44;
     font: 150%;
@@ -111,35 +107,80 @@ label.motors {
     display: block;
 }
 
+canvas.param {
+    width: 700px;
+    height: 150px;
+}
+
+canvas.param + label {
+    position: absolute;
+    left: 710px;
+    width: 100px;
+}
+
+canvas.param + label div {
+    font: 150%;
+    font-weight: bold;
+    margin-bottom: 0.75em;
+}
+
+input.param {
+    width: 600px;
+}
+
+output.param {
+    position: absolute;
+}
+
+div.columns {
+    position: relative;
+}
+
+div.left-column {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+div.right-column {
+    position: absolute;
+    left: 820px;
+    top: 0;
+}
+
+
 </style>
 </head>
 <body onload="uiSetup()">
 
 <label class="motors"><input class="motors" type="checkbox">Enable Motors</label>
 
-<table>
+<div class="columns"><div class="left-column">
 
-<tr><td><canvas class="param" width="800" height="160" data-param="0x02"></canvas></td><td> 02 <br/> </td></tr>
-<tr><td><canvas class="param" width="800" height="160" data-param="0x03"></canvas></td><td> 03 <br/> pitch error? </td></tr>
-<tr><td><canvas class="param" width="800" height="160" data-param="0x04"></canvas></td><td> 04 <br/> Angular rate (gyro)</td></tr>
-<tr><td><canvas class="param" width="800" height="160" data-param="0x06"></canvas></td><td> 06 <br/> </td></tr>
-<tr><td><canvas class="param" width="800" height="160" data-param="0x07"></canvas></td><td> 07 <br/> </td></tr>
+<div><canvas class="param" data-param="0x02"></canvas><label><div> 02 </div> </label></div>
+<div><canvas class="param" data-param="0x03"></canvas><label><div> 03 </div> pitch error? </label></div>
+<div><canvas class="param" data-param="0x04"></canvas><label><div> 04 </div> Angular rate (gyro) </label></div>
+<div><canvas class="param" data-param="0x06"></canvas><label><div> 06 </div> </label></div>
+<div><canvas class="param" data-param="0x07"></canvas><label><div> 07 </div> </label></div>
 
-<tr><td><canvas class="param" width="800" height="160" data-param="0x08"></canvas></td><td> 08 <br/> Target heading </td></tr>
-<tr><td><input type="range" class="param" min="-32767" max="32767" value="0" data-param="0x08" data-target="0"/></td><td><output class="param" data-param="0x08" data-target="0"></output></td></tr>
-<tr><td><input type="range" class="param" min="-32767" max="32767" value="0" data-param="0x08" data-target="1"/></td><td><output class="param" data-param="0x08" data-target="1"></output></td></tr>
-<tr><td><input type="range" class="param" min="-32767" max="32767" value="0" data-param="0x08" data-target="2"/></td><td><output class="param" data-param="0x08" data-target="2"></output></td></tr>
+<div><canvas class="param" data-param="0x08"></canvas><label><div> 08 </div> Target heading </label></div>
+<div><input type="range" class="param" min="-32767" max="32767" value="0" data-param="0x08" data-target="0" /><output class="param" data-param="0x08" data-target="0"></output></div>
+<div><input type="range" class="param" min="-32767" max="32767" value="0" data-param="0x08" data-target="1" /><output class="param" data-param="0x08" data-target="1"></output></div>
+<div><input type="range" class="param" min="-32767" max="32767" value="0" data-param="0x08" data-target="2" /><output class="param" data-param="0x08" data-target="2"></output></div>
+<div><canvas class="param" data-param="0x09"></canvas><label><div> 09 </div> Angle (gyro) </label></div>
 
-<tr><td><canvas class="param" width="800" height="160" data-param="0x09"></canvas></td><td> 09 <br/> Angle (gyro) </td></tr>
-<tr><td><canvas class="param" width="800" height="160" data-param="0x28"></canvas></td><td> 28 <br/> </td></tr>
-<tr><td><canvas class="param" width="800" height="160" data-param="0x2c"></canvas></td><td> 2C <br/> Joint angles (processed encoder data)</td></tr>
-<tr><td><canvas class="param" width="800" height="160" data-param="0x48"></canvas></td><td> 48 <br/> </td></tr>
-<tr><td><canvas class="param" width="800" height="160" data-param="0x4a"></canvas></td><td> 4A <br/> </td></tr>
-<tr><td><canvas class="param" width="800" height="160" data-param="0x4c"></canvas></td><td> 4C <br/> </td></tr>
-<tr><td><canvas class="param" width="800" height="160" data-param="0x66"></canvas></td><td> 66 <br/> </td></tr>
-<tr><td><canvas class="param" width="800" height="160" data-param="0x6f"></canvas></td><td> 6F <br/> </td></tr>
-<tr><td><canvas class="param" width="800" height="160" data-param="0x70"></canvas></td><td> 70 <br/> </td></tr>
+</div><div class="right-column">
 
-</table>
+<div><canvas class="param" data-param="0x28"></canvas><label><div> 28 </div> </label></div>
+<div><canvas class="param" data-param="0x2c"></canvas><label><div> 2C </div> Joint angles (processed encoder data) </label></div>
+<div><canvas class="param" data-param="0x48"></canvas><label><div> 48 </div> </label></div>
+<div><canvas class="param" data-param="0x4a"></canvas><label><div> 4A </div> </label></div>
+<div><canvas class="param" data-param="0x4c"></canvas><label><div> 4C </div> </label></div>
+<div><canvas class="param" data-param="0x66"></canvas><label><div> 66 </div> </label></div>
+<div><canvas class="param" data-param="0x6f"></canvas><label><div> 6F </div> </label></div>
+<div><canvas class="param" data-param="0x70"></canvas><label><div> 70 </div> </label></div>
+
+</div></div>
+
 </body>
 </html>
