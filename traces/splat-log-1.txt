@@ -1,0 +1,1553 @@
+RX <Pkt-AA55 t=00 cmd=00 [00047300]>
+RX <Pkt-AA55 t=00 cmd=00 [00047300]>
+RX <Pkt-AA55 t=00 cmd=00 [00047300]>
+RX <Pkt-AA55 t=00 cmd=00 [00047300]>
+RX <Pkt-5AA5 t=03 cmd=0b [00]>
+Responding to init packet
+TX <Pkt-5AA5 t=00 cmd=0b [01]>
+Connected, version 1.15
+TX <Pkt-5AA5 t=00 cmd=08 [0000ffff]>
+TX <Pkt-5AA5 t=00 cmd=06 [00]>
+RX <Pkt-5AA5 t=03 cmd=06 [ffff]>
+Set t=00 n=00 to -1 (read -1)
+TX <Pkt-5AA5 t=01 cmd=08 [0000ffff]>
+TX <Pkt-5AA5 t=01 cmd=06 [00]>
+RX <Pkt-5AA5 t=03 cmd=06 [ffff]>
+Set t=01 n=00 to -1 (read -1)
+TX <Pkt-5AA5 t=02 cmd=08 [0000fde1]>
+TX <Pkt-5AA5 t=02 cmd=06 [00]>
+RX <Pkt-5AA5 t=03 cmd=06 [fde1]>
+Set t=02 n=00 to -7683 (read -7683)
+TX <Pkt-5AA5 t=00 cmd=08 [01000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [01]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=01 to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [01000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [01]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=01 to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [01000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [01]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=01 to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [02000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [02]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=02 to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [02000200]>
+TX <Pkt-5AA5 t=01 cmd=06 [02]>
+RX <Pkt-5AA5 t=03 cmd=06 [0200]>
+Set t=01 n=02 to 2 (read 2)
+TX <Pkt-5AA5 t=02 cmd=08 [02000200]>
+TX <Pkt-5AA5 t=02 cmd=06 [02]>
+RX <Pkt-5AA5 t=03 cmd=06 [0200]>
+Set t=02 n=02 to 2 (read 2)
+TX <Pkt-5AA5 t=00 cmd=08 [03000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [03]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=03 to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [03000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [03]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=03 to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [03003b00]>
+TX <Pkt-5AA5 t=02 cmd=06 [03]>
+RX <Pkt-5AA5 t=03 cmd=06 [3b00]>
+Set t=02 n=03 to 59 (read 59)
+TX <Pkt-5AA5 t=00 cmd=08 [04000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [04]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=04 to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [04000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [04]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=04 to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [04000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [04]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=04 to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [05000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [05]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=05 to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [05000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [05]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=05 to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [05000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [05]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=05 to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [06000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [06]>
+RX <Pkt-5AA5 t=03 cmd=06 [b3f3]>
+Set t=00 n=06 to 0 (read -3149)
+TX <Pkt-5AA5 t=01 cmd=08 [06000e05]>
+TX <Pkt-5AA5 t=01 cmd=06 [06]>
+RX <Pkt-5AA5 t=03 cmd=06 [b2fd]>
+Set t=01 n=06 to 1294 (read -590)
+TX <Pkt-5AA5 t=02 cmd=08 [060048f7]>
+TX <Pkt-5AA5 t=02 cmd=06 [06]>
+RX <Pkt-5AA5 t=03 cmd=06 [48f7]>
+Set t=02 n=06 to -2232 (read -2232)
+TX <Pkt-5AA5 t=00 cmd=08 [07000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [07]>
+RX <Pkt-5AA5 t=03 cmd=06 [7500]>
+Set t=00 n=07 to 0 (read 117)
+TX <Pkt-5AA5 t=01 cmd=08 [07007500]>
+TX <Pkt-5AA5 t=01 cmd=06 [07]>
+RX <Pkt-5AA5 t=03 cmd=06 [7400]>
+Set t=01 n=07 to 117 (read 116)
+TX <Pkt-5AA5 t=02 cmd=08 [07007700]>
+TX <Pkt-5AA5 t=02 cmd=06 [07]>
+RX <Pkt-5AA5 t=03 cmd=06 [7700]>
+Set t=02 n=07 to 119 (read 119)
+TX <Pkt-5AA5 t=00 cmd=08 [08000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [08]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=08 to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [08000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [08]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=08 to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [08000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [08]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=08 to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [09000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [09]>
+RX <Pkt-5AA5 t=03 cmd=06 [49f5]>
+Set t=00 n=09 to 0 (read -2743)
+TX <Pkt-5AA5 t=01 cmd=08 [090056f1]>
+TX <Pkt-5AA5 t=01 cmd=06 [09]>
+RX <Pkt-5AA5 t=03 cmd=06 [56f1]>
+Set t=01 n=09 to -3754 (read -3754)
+TX <Pkt-5AA5 t=02 cmd=08 [0900d8fe]>
+TX <Pkt-5AA5 t=02 cmd=06 [09]>
+RX <Pkt-5AA5 t=03 cmd=06 [d8fe]>
+Set t=02 n=09 to -296 (read -296)
+TX <Pkt-5AA5 t=00 cmd=08 [0a000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [0a]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=0a to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [0a000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [0a]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=0a to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [0a000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [0a]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=0a to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [0b00f401]>
+TX <Pkt-5AA5 t=00 cmd=06 [0b]>
+RX <Pkt-5AA5 t=03 cmd=06 [f401]>
+Set t=00 n=0b to 500 (read 500)
+TX <Pkt-5AA5 t=01 cmd=08 [0b00f401]>
+TX <Pkt-5AA5 t=01 cmd=06 [0b]>
+RX <Pkt-5AA5 t=03 cmd=06 [f401]>
+Set t=01 n=0b to 500 (read 500)
+TX <Pkt-5AA5 t=02 cmd=08 [0b00f401]>
+TX <Pkt-5AA5 t=02 cmd=06 [0b]>
+RX <Pkt-5AA5 t=03 cmd=06 [f401]>
+Set t=02 n=0b to 500 (read 500)
+TX <Pkt-5AA5 t=00 cmd=08 [0c00f401]>
+TX <Pkt-5AA5 t=00 cmd=06 [0c]>
+RX <Pkt-5AA5 t=03 cmd=06 [f401]>
+Set t=00 n=0c to 500 (read 500)
+TX <Pkt-5AA5 t=01 cmd=08 [0c00f401]>
+TX <Pkt-5AA5 t=01 cmd=06 [0c]>
+RX <Pkt-5AA5 t=03 cmd=06 [f401]>
+Set t=01 n=0c to 500 (read 500)
+TX <Pkt-5AA5 t=02 cmd=08 [0c00f401]>
+TX <Pkt-5AA5 t=02 cmd=06 [0c]>
+RX <Pkt-5AA5 t=03 cmd=06 [f401]>
+Set t=02 n=0c to 500 (read 500)
+TX <Pkt-5AA5 t=00 cmd=08 [0d000100]>
+TX <Pkt-5AA5 t=00 cmd=06 [0d]>
+RX <Pkt-5AA5 t=03 cmd=06 [0100]>
+Set t=00 n=0d to 1 (read 1)
+TX <Pkt-5AA5 t=01 cmd=08 [0d000100]>
+TX <Pkt-5AA5 t=01 cmd=06 [0d]>
+RX <Pkt-5AA5 t=03 cmd=06 [0100]>
+Set t=01 n=0d to 1 (read 1)
+TX <Pkt-5AA5 t=02 cmd=08 [0d000100]>
+TX <Pkt-5AA5 t=02 cmd=06 [0d]>
+RX <Pkt-5AA5 t=03 cmd=06 [0100]>
+Set t=02 n=0d to 1 (read 1)
+TX <Pkt-5AA5 t=00 cmd=08 [0e005a00]>
+TX <Pkt-5AA5 t=00 cmd=06 [0e]>
+RX <Pkt-5AA5 t=03 cmd=06 [5a00]>
+Set t=00 n=0e to 90 (read 90)
+TX <Pkt-5AA5 t=01 cmd=08 [0e005a00]>
+TX <Pkt-5AA5 t=01 cmd=06 [0e]>
+RX <Pkt-5AA5 t=03 cmd=06 [5a00]>
+Set t=01 n=0e to 90 (read 90)
+TX <Pkt-5AA5 t=02 cmd=08 [0e005a00]>
+TX <Pkt-5AA5 t=02 cmd=06 [0e]>
+RX <Pkt-5AA5 t=03 cmd=06 [5a00]>
+Set t=02 n=0e to 90 (read 90)
+TX <Pkt-5AA5 t=00 cmd=08 [0f000100]>
+TX <Pkt-5AA5 t=00 cmd=06 [0f]>
+RX <Pkt-5AA5 t=03 cmd=06 [0100]>
+Set t=00 n=0f to 1 (read 1)
+TX <Pkt-5AA5 t=01 cmd=08 [0f000100]>
+TX <Pkt-5AA5 t=01 cmd=06 [0f]>
+RX <Pkt-5AA5 t=03 cmd=06 [0100]>
+Set t=01 n=0f to 1 (read 1)
+TX <Pkt-5AA5 t=02 cmd=08 [0f000100]>
+TX <Pkt-5AA5 t=02 cmd=06 [0f]>
+RX <Pkt-5AA5 t=03 cmd=06 [0100]>
+Set t=02 n=0f to 1 (read 1)
+TX <Pkt-5AA5 t=00 cmd=08 [10005802]>
+TX <Pkt-5AA5 t=00 cmd=06 [10]>
+RX <Pkt-5AA5 t=03 cmd=06 [5802]>
+Set t=00 n=10 to 600 (read 600)
+TX <Pkt-5AA5 t=01 cmd=08 [10005802]>
+TX <Pkt-5AA5 t=01 cmd=06 [10]>
+RX <Pkt-5AA5 t=03 cmd=06 [5802]>
+Set t=01 n=10 to 600 (read 600)
+TX <Pkt-5AA5 t=02 cmd=08 [10005802]>
+TX <Pkt-5AA5 t=02 cmd=06 [10]>
+RX <Pkt-5AA5 t=03 cmd=06 [5802]>
+Set t=02 n=10 to 600 (read 600)
+TX <Pkt-5AA5 t=00 cmd=08 [11006400]>
+TX <Pkt-5AA5 t=00 cmd=06 [11]>
+RX <Pkt-5AA5 t=03 cmd=06 [6400]>
+Set t=00 n=11 to 100 (read 100)
+TX <Pkt-5AA5 t=01 cmd=08 [11006400]>
+TX <Pkt-5AA5 t=01 cmd=06 [11]>
+RX <Pkt-5AA5 t=03 cmd=06 [6400]>
+Set t=01 n=11 to 100 (read 100)
+TX <Pkt-5AA5 t=02 cmd=08 [11006400]>
+TX <Pkt-5AA5 t=02 cmd=06 [11]>
+RX <Pkt-5AA5 t=03 cmd=06 [6400]>
+Set t=02 n=11 to 100 (read 100)
+TX <Pkt-5AA5 t=00 cmd=08 [1200e803]>
+TX <Pkt-5AA5 t=00 cmd=06 [12]>
+RX <Pkt-5AA5 t=03 cmd=06 [e803]>
+Set t=00 n=12 to 1000 (read 1000)
+TX <Pkt-5AA5 t=01 cmd=08 [1200e803]>
+TX <Pkt-5AA5 t=01 cmd=06 [12]>
+RX <Pkt-5AA5 t=03 cmd=06 [e803]>
+Set t=01 n=12 to 1000 (read 1000)
+TX <Pkt-5AA5 t=02 cmd=08 [1200e803]>
+TX <Pkt-5AA5 t=02 cmd=06 [12]>
+RX <Pkt-5AA5 t=03 cmd=06 [e803]>
+Set t=02 n=12 to 1000 (read 1000)
+TX <Pkt-5AA5 t=00 cmd=08 [13003075]>
+TX <Pkt-5AA5 t=00 cmd=06 [13]>
+RX <Pkt-5AA5 t=03 cmd=06 [3075]>
+Set t=00 n=13 to 30000 (read 30000)
+TX <Pkt-5AA5 t=01 cmd=08 [13003075]>
+TX <Pkt-5AA5 t=01 cmd=06 [13]>
+RX <Pkt-5AA5 t=03 cmd=06 [3075]>
+Set t=01 n=13 to 30000 (read 30000)
+TX <Pkt-5AA5 t=02 cmd=08 [13003075]>
+TX <Pkt-5AA5 t=02 cmd=06 [13]>
+RX <Pkt-5AA5 t=03 cmd=06 [3075]>
+Set t=02 n=13 to 30000 (read 30000)
+TX <Pkt-5AA5 t=00 cmd=08 [14003075]>
+TX <Pkt-5AA5 t=00 cmd=06 [14]>
+RX <Pkt-5AA5 t=03 cmd=06 [3075]>
+Set t=00 n=14 to 30000 (read 30000)
+TX <Pkt-5AA5 t=01 cmd=08 [14003075]>
+TX <Pkt-5AA5 t=01 cmd=06 [14]>
+RX <Pkt-5AA5 t=03 cmd=06 [3075]>
+Set t=01 n=14 to 30000 (read 30000)
+TX <Pkt-5AA5 t=02 cmd=08 [14003075]>
+TX <Pkt-5AA5 t=02 cmd=06 [14]>
+RX <Pkt-5AA5 t=03 cmd=06 [3075]>
+Set t=02 n=14 to 30000 (read 30000)
+TX <Pkt-5AA5 t=00 cmd=08 [15007206]>
+TX <Pkt-5AA5 t=00 cmd=06 [15]>
+RX <Pkt-5AA5 t=03 cmd=06 [7206]>
+Set t=00 n=15 to 1650 (read 1650)
+TX <Pkt-5AA5 t=01 cmd=08 [15007206]>
+TX <Pkt-5AA5 t=01 cmd=06 [15]>
+RX <Pkt-5AA5 t=03 cmd=06 [7206]>
+Set t=01 n=15 to 1650 (read 1650)
+TX <Pkt-5AA5 t=02 cmd=08 [15007206]>
+TX <Pkt-5AA5 t=02 cmd=06 [15]>
+RX <Pkt-5AA5 t=03 cmd=06 [7206]>
+Set t=02 n=15 to 1650 (read 1650)
+TX <Pkt-5AA5 t=00 cmd=08 [16007206]>
+TX <Pkt-5AA5 t=00 cmd=06 [16]>
+RX <Pkt-5AA5 t=03 cmd=06 [7206]>
+Set t=00 n=16 to 1650 (read 1650)
+TX <Pkt-5AA5 t=01 cmd=08 [16007206]>
+TX <Pkt-5AA5 t=01 cmd=06 [16]>
+RX <Pkt-5AA5 t=03 cmd=06 [7206]>
+Set t=01 n=16 to 1650 (read 1650)
+TX <Pkt-5AA5 t=02 cmd=08 [16007206]>
+TX <Pkt-5AA5 t=02 cmd=06 [16]>
+RX <Pkt-5AA5 t=03 cmd=06 [7206]>
+Set t=02 n=16 to 1650 (read 1650)
+TX <Pkt-5AA5 t=00 cmd=08 [17003f00]>
+TX <Pkt-5AA5 t=00 cmd=06 [17]>
+RX <Pkt-5AA5 t=03 cmd=06 [3f00]>
+Set t=00 n=17 to 63 (read 63)
+TX <Pkt-5AA5 t=01 cmd=08 [17003f00]>
+TX <Pkt-5AA5 t=01 cmd=06 [17]>
+RX <Pkt-5AA5 t=03 cmd=06 [3f00]>
+Set t=01 n=17 to 63 (read 63)
+TX <Pkt-5AA5 t=02 cmd=08 [17003f00]>
+TX <Pkt-5AA5 t=02 cmd=06 [17]>
+RX <Pkt-5AA5 t=03 cmd=06 [3f00]>
+Set t=02 n=17 to 63 (read 63)
+TX <Pkt-5AA5 t=00 cmd=08 [18000100]>
+TX <Pkt-5AA5 t=00 cmd=06 [18]>
+RX <Pkt-5AA5 t=03 cmd=06 [0100]>
+Set t=00 n=18 to 1 (read 1)
+TX <Pkt-5AA5 t=01 cmd=08 [18000100]>
+TX <Pkt-5AA5 t=01 cmd=06 [18]>
+RX <Pkt-5AA5 t=03 cmd=06 [0100]>
+Set t=01 n=18 to 1 (read 1)
+TX <Pkt-5AA5 t=02 cmd=08 [18000100]>
+TX <Pkt-5AA5 t=02 cmd=06 [18]>
+RX <Pkt-5AA5 t=03 cmd=06 [0100]>
+Set t=02 n=18 to 1 (read 1)
+TX <Pkt-5AA5 t=00 cmd=08 [1900f401]>
+TX <Pkt-5AA5 t=00 cmd=06 [19]>
+RX <Pkt-5AA5 t=03 cmd=06 [f401]>
+Set t=00 n=19 to 500 (read 500)
+TX <Pkt-5AA5 t=01 cmd=08 [1900f401]>
+TX <Pkt-5AA5 t=01 cmd=06 [19]>
+RX <Pkt-5AA5 t=03 cmd=06 [f401]>
+Set t=01 n=19 to 500 (read 500)
+TX <Pkt-5AA5 t=02 cmd=08 [1900f401]>
+TX <Pkt-5AA5 t=02 cmd=06 [19]>
+RX <Pkt-5AA5 t=03 cmd=06 [f401]>
+Set t=02 n=19 to 500 (read 500)
+TX <Pkt-5AA5 t=00 cmd=08 [1a00f401]>
+TX <Pkt-5AA5 t=00 cmd=06 [1a]>
+RX <Pkt-5AA5 t=03 cmd=06 [f401]>
+Set t=00 n=1a to 500 (read 500)
+TX <Pkt-5AA5 t=01 cmd=08 [1a00f401]>
+TX <Pkt-5AA5 t=01 cmd=06 [1a]>
+RX <Pkt-5AA5 t=03 cmd=06 [f401]>
+Set t=01 n=1a to 500 (read 500)
+TX <Pkt-5AA5 t=02 cmd=08 [1a00f401]>
+TX <Pkt-5AA5 t=02 cmd=06 [1a]>
+RX <Pkt-5AA5 t=03 cmd=06 [f401]>
+Set t=02 n=1a to 500 (read 500)
+TX <Pkt-5AA5 t=00 cmd=08 [1b005046]>
+TX <Pkt-5AA5 t=00 cmd=06 [1b]>
+RX <Pkt-5AA5 t=03 cmd=06 [5046]>
+Set t=00 n=1b to 18000 (read 18000)
+TX <Pkt-5AA5 t=01 cmd=08 [1b005046]>
+TX <Pkt-5AA5 t=01 cmd=06 [1b]>
+RX <Pkt-5AA5 t=03 cmd=06 [5046]>
+Set t=01 n=1b to 18000 (read 18000)
+TX <Pkt-5AA5 t=02 cmd=08 [1b00401f]>
+TX <Pkt-5AA5 t=02 cmd=06 [1b]>
+RX <Pkt-5AA5 t=03 cmd=06 [401f]>
+Set t=02 n=1b to 8000 (read 8000)
+TX <Pkt-5AA5 t=00 cmd=08 [1c00c800]>
+TX <Pkt-5AA5 t=00 cmd=06 [1c]>
+RX <Pkt-5AA5 t=03 cmd=06 [c800]>
+Set t=00 n=1c to 200 (read 200)
+TX <Pkt-5AA5 t=01 cmd=08 [1c00c800]>
+TX <Pkt-5AA5 t=01 cmd=06 [1c]>
+RX <Pkt-5AA5 t=03 cmd=06 [c800]>
+Set t=01 n=1c to 200 (read 200)
+TX <Pkt-5AA5 t=02 cmd=08 [1c003200]>
+TX <Pkt-5AA5 t=02 cmd=06 [1c]>
+RX <Pkt-5AA5 t=03 cmd=06 [3200]>
+Set t=02 n=1c to 50 (read 50)
+TX <Pkt-5AA5 t=00 cmd=08 [1d000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [1d]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=1d to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [1d000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [1d]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=1d to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [1d000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [1d]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=1d to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [1e000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [1e]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=1e to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [1e000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [1e]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=1e to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [1e000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [1e]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=1e to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [1f000900]>
+TX <Pkt-5AA5 t=00 cmd=06 [1f]>
+RX <Pkt-5AA5 t=03 cmd=06 [0900]>
+Set t=00 n=1f to 9 (read 9)
+TX <Pkt-5AA5 t=01 cmd=08 [1f000900]>
+TX <Pkt-5AA5 t=01 cmd=06 [1f]>
+RX <Pkt-5AA5 t=03 cmd=06 [0900]>
+Set t=01 n=1f to 9 (read 9)
+TX <Pkt-5AA5 t=02 cmd=08 [1f000900]>
+TX <Pkt-5AA5 t=02 cmd=06 [1f]>
+RX <Pkt-5AA5 t=03 cmd=06 [0900]>
+Set t=02 n=1f to 9 (read 9)
+TX <Pkt-5AA5 t=00 cmd=08 [20000a00]>
+TX <Pkt-5AA5 t=00 cmd=06 [20]>
+RX <Pkt-5AA5 t=03 cmd=06 [0a00]>
+Set t=00 n=20 to 10 (read 10)
+TX <Pkt-5AA5 t=01 cmd=08 [20000a00]>
+TX <Pkt-5AA5 t=01 cmd=06 [20]>
+RX <Pkt-5AA5 t=03 cmd=06 [0a00]>
+Set t=01 n=20 to 10 (read 10)
+TX <Pkt-5AA5 t=02 cmd=08 [20000a00]>
+TX <Pkt-5AA5 t=02 cmd=06 [20]>
+RX <Pkt-5AA5 t=03 cmd=06 [0a00]>
+Set t=02 n=20 to 10 (read 10)
+TX <Pkt-5AA5 t=00 cmd=08 [21000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [21]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=21 to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [21000100]>
+TX <Pkt-5AA5 t=01 cmd=06 [21]>
+RX <Pkt-5AA5 t=03 cmd=06 [0100]>
+Set t=01 n=21 to 1 (read 1)
+TX <Pkt-5AA5 t=02 cmd=08 [21000200]>
+TX <Pkt-5AA5 t=02 cmd=06 [21]>
+RX <Pkt-5AA5 t=03 cmd=06 [0200]>
+Set t=02 n=21 to 2 (read 2)
+TX <Pkt-5AA5 t=00 cmd=08 [2200e803]>
+TX <Pkt-5AA5 t=00 cmd=06 [22]>
+RX <Pkt-5AA5 t=03 cmd=06 [e803]>
+Set t=00 n=22 to 1000 (read 1000)
+TX <Pkt-5AA5 t=01 cmd=08 [2200e803]>
+TX <Pkt-5AA5 t=01 cmd=06 [22]>
+RX <Pkt-5AA5 t=03 cmd=06 [e803]>
+Set t=01 n=22 to 1000 (read 1000)
+TX <Pkt-5AA5 t=02 cmd=08 [2200e803]>
+TX <Pkt-5AA5 t=02 cmd=06 [22]>
+RX <Pkt-5AA5 t=03 cmd=06 [e803]>
+Set t=02 n=22 to 1000 (read 1000)
+TX <Pkt-5AA5 t=00 cmd=08 [23000004]>
+TX <Pkt-5AA5 t=00 cmd=06 [23]>
+RX <Pkt-5AA5 t=03 cmd=06 [0004]>
+Set t=00 n=23 to 1024 (read 1024)
+TX <Pkt-5AA5 t=01 cmd=08 [23000004]>
+TX <Pkt-5AA5 t=01 cmd=06 [23]>
+RX <Pkt-5AA5 t=03 cmd=06 [0004]>
+Set t=01 n=23 to 1024 (read 1024)
+TX <Pkt-5AA5 t=02 cmd=08 [23000004]>
+TX <Pkt-5AA5 t=02 cmd=06 [23]>
+RX <Pkt-5AA5 t=03 cmd=06 [0004]>
+Set t=02 n=23 to 1024 (read 1024)
+TX <Pkt-5AA5 t=00 cmd=08 [24000010]>
+TX <Pkt-5AA5 t=00 cmd=06 [24]>
+RX <Pkt-5AA5 t=03 cmd=06 [0010]>
+Set t=00 n=24 to 4096 (read 4096)
+TX <Pkt-5AA5 t=01 cmd=08 [24000010]>
+TX <Pkt-5AA5 t=01 cmd=06 [24]>
+RX <Pkt-5AA5 t=03 cmd=06 [0010]>
+Set t=01 n=24 to 4096 (read 4096)
+TX <Pkt-5AA5 t=02 cmd=08 [24000010]>
+TX <Pkt-5AA5 t=02 cmd=06 [24]>
+RX <Pkt-5AA5 t=03 cmd=06 [0010]>
+Set t=02 n=24 to 4096 (read 4096)
+TX <Pkt-5AA5 t=00 cmd=08 [25000100]>
+TX <Pkt-5AA5 t=00 cmd=06 [25]>
+RX <Pkt-5AA5 t=03 cmd=06 [0100]>
+Set t=00 n=25 to 1 (read 1)
+TX <Pkt-5AA5 t=01 cmd=08 [25000100]>
+TX <Pkt-5AA5 t=01 cmd=06 [25]>
+RX <Pkt-5AA5 t=03 cmd=06 [0100]>
+Set t=01 n=25 to 1 (read 1)
+TX <Pkt-5AA5 t=02 cmd=08 [25000100]>
+TX <Pkt-5AA5 t=02 cmd=06 [25]>
+RX <Pkt-5AA5 t=03 cmd=06 [0100]>
+Set t=02 n=25 to 1 (read 1)
+TX <Pkt-5AA5 t=00 cmd=08 [26000700]>
+TX <Pkt-5AA5 t=00 cmd=06 [26]>
+RX <Pkt-5AA5 t=03 cmd=06 [0700]>
+Set t=00 n=26 to 7 (read 7)
+TX <Pkt-5AA5 t=01 cmd=08 [26000700]>
+TX <Pkt-5AA5 t=01 cmd=06 [26]>
+RX <Pkt-5AA5 t=03 cmd=06 [0700]>
+Set t=01 n=26 to 7 (read 7)
+TX <Pkt-5AA5 t=02 cmd=08 [26000700]>
+TX <Pkt-5AA5 t=02 cmd=06 [26]>
+RX <Pkt-5AA5 t=03 cmd=06 [0700]>
+Set t=02 n=26 to 7 (read 7)
+TX <Pkt-5AA5 t=00 cmd=08 [27000040]>
+TX <Pkt-5AA5 t=00 cmd=06 [27]>
+RX <Pkt-5AA5 t=03 cmd=06 [0040]>
+Set t=00 n=27 to 16384 (read 16384)
+TX <Pkt-5AA5 t=01 cmd=08 [27000040]>
+TX <Pkt-5AA5 t=01 cmd=06 [27]>
+RX <Pkt-5AA5 t=03 cmd=06 [0040]>
+Set t=01 n=27 to 16384 (read 16384)
+TX <Pkt-5AA5 t=02 cmd=08 [27000040]>
+TX <Pkt-5AA5 t=02 cmd=06 [27]>
+RX <Pkt-5AA5 t=03 cmd=06 [0040]>
+Set t=02 n=27 to 16384 (read 16384)
+TX <Pkt-5AA5 t=00 cmd=08 [28007562]>
+TX <Pkt-5AA5 t=00 cmd=06 [28]>
+RX <Pkt-5AA5 t=03 cmd=06 [7988]>
+Set t=00 n=28 to 25205 (read -30599)
+TX <Pkt-5AA5 t=01 cmd=08 [280053db]>
+TX <Pkt-5AA5 t=01 cmd=06 [28]>
+RX <Pkt-5AA5 t=03 cmd=06 [d753]>
+Set t=01 n=28 to -9389 (read 21463)
+TX <Pkt-5AA5 t=02 cmd=08 [28007eb3]>
+TX <Pkt-5AA5 t=02 cmd=06 [28]>
+RX <Pkt-5AA5 t=03 cmd=06 [859d]>
+Set t=02 n=28 to -19586 (read -25211)
+TX <Pkt-5AA5 t=00 cmd=08 [2900c800]>
+TX <Pkt-5AA5 t=00 cmd=06 [29]>
+RX <Pkt-5AA5 t=03 cmd=06 [c800]>
+Set t=00 n=29 to 200 (read 200)
+TX <Pkt-5AA5 t=01 cmd=08 [2900c800]>
+TX <Pkt-5AA5 t=01 cmd=06 [29]>
+RX <Pkt-5AA5 t=03 cmd=06 [c800]>
+Set t=01 n=29 to 200 (read 200)
+TX <Pkt-5AA5 t=02 cmd=08 [2900c800]>
+TX <Pkt-5AA5 t=02 cmd=06 [29]>
+RX <Pkt-5AA5 t=03 cmd=06 [c800]>
+Set t=02 n=29 to 200 (read 200)
+TX <Pkt-5AA5 t=00 cmd=08 [2a001400]>
+TX <Pkt-5AA5 t=00 cmd=06 [2a]>
+RX <Pkt-5AA5 t=03 cmd=06 [1400]>
+Set t=00 n=2a to 20 (read 20)
+TX <Pkt-5AA5 t=01 cmd=08 [2a001400]>
+TX <Pkt-5AA5 t=01 cmd=06 [2a]>
+RX <Pkt-5AA5 t=03 cmd=06 [1400]>
+Set t=01 n=2a to 20 (read 20)
+TX <Pkt-5AA5 t=02 cmd=08 [2a001400]>
+TX <Pkt-5AA5 t=02 cmd=06 [2a]>
+RX <Pkt-5AA5 t=03 cmd=06 [1400]>
+Set t=02 n=2a to 20 (read 20)
+TX <Pkt-5AA5 t=00 cmd=08 [2b00204e]>
+TX <Pkt-5AA5 t=00 cmd=06 [2b]>
+RX <Pkt-5AA5 t=03 cmd=06 [204e]>
+Set t=00 n=2b to 20000 (read 20000)
+TX <Pkt-5AA5 t=01 cmd=08 [2b00204e]>
+TX <Pkt-5AA5 t=01 cmd=06 [2b]>
+RX <Pkt-5AA5 t=03 cmd=06 [204e]>
+Set t=01 n=2b to 20000 (read 20000)
+TX <Pkt-5AA5 t=02 cmd=08 [2b00204e]>
+TX <Pkt-5AA5 t=02 cmd=06 [2b]>
+RX <Pkt-5AA5 t=03 cmd=06 [204e]>
+Set t=02 n=2b to 20000 (read 20000)
+TX <Pkt-5AA5 t=00 cmd=08 [2c00810b]>
+TX <Pkt-5AA5 t=00 cmd=06 [2c]>
+RX <Pkt-5AA5 t=03 cmd=06 [ca09]>
+Set t=00 n=2c to 2945 (read 2506)
+TX <Pkt-5AA5 t=01 cmd=08 [2c00e109]>
+TX <Pkt-5AA5 t=01 cmd=06 [2c]>
+RX <Pkt-5AA5 t=03 cmd=06 [2e00]>
+Set t=01 n=2c to 2529 (read 46)
+TX <Pkt-5AA5 t=02 cmd=08 [2c00600b]>
+TX <Pkt-5AA5 t=02 cmd=06 [2c]>
+RX <Pkt-5AA5 t=03 cmd=06 [6805]>
+Set t=02 n=2c to 2912 (read 1384)
+TX <Pkt-5AA5 t=00 cmd=08 [2d001e00]>
+TX <Pkt-5AA5 t=00 cmd=06 [2d]>
+RX <Pkt-5AA5 t=03 cmd=06 [1e00]>
+Set t=00 n=2d to 30 (read 30)
+TX <Pkt-5AA5 t=01 cmd=08 [2d001e00]>
+TX <Pkt-5AA5 t=01 cmd=06 [2d]>
+RX <Pkt-5AA5 t=03 cmd=06 [1e00]>
+Set t=01 n=2d to 30 (read 30)
+TX <Pkt-5AA5 t=02 cmd=08 [2d001e00]>
+TX <Pkt-5AA5 t=02 cmd=06 [2d]>
+RX <Pkt-5AA5 t=03 cmd=06 [1e00]>
+Set t=02 n=2d to 30 (read 30)
+TX <Pkt-5AA5 t=00 cmd=08 [2e000080]>
+TX <Pkt-5AA5 t=00 cmd=06 [2e]>
+RX <Pkt-5AA5 t=03 cmd=06 [0080]>
+Set t=00 n=2e to -32768 (read -32768)
+TX <Pkt-5AA5 t=01 cmd=08 [2e000080]>
+TX <Pkt-5AA5 t=01 cmd=06 [2e]>
+RX <Pkt-5AA5 t=03 cmd=06 [0080]>
+Set t=01 n=2e to -32768 (read -32768)
+TX <Pkt-5AA5 t=02 cmd=08 [2e000080]>
+TX <Pkt-5AA5 t=02 cmd=06 [2e]>
+RX <Pkt-5AA5 t=03 cmd=06 [0080]>
+Set t=02 n=2e to -32768 (read -32768)
+TX <Pkt-5AA5 t=00 cmd=08 [2f000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [2f]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=2f to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [2f000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [2f]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=2f to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [2f000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [2f]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=2f to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [30006400]>
+TX <Pkt-5AA5 t=00 cmd=06 [30]>
+RX <Pkt-5AA5 t=03 cmd=06 [6400]>
+Set t=00 n=30 to 100 (read 100)
+TX <Pkt-5AA5 t=01 cmd=08 [30006400]>
+TX <Pkt-5AA5 t=01 cmd=06 [30]>
+RX <Pkt-5AA5 t=03 cmd=06 [6400]>
+Set t=01 n=30 to 100 (read 100)
+TX <Pkt-5AA5 t=02 cmd=08 [30006400]>
+TX <Pkt-5AA5 t=02 cmd=06 [30]>
+RX <Pkt-5AA5 t=03 cmd=06 [6400]>
+Set t=02 n=30 to 100 (read 100)
+TX <Pkt-5AA5 t=00 cmd=08 [31000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [31]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=31 to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [31000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [31]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=31 to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [31000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [31]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=31 to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [32000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [32]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=32 to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [32000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [32]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=32 to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [32000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [32]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=32 to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [3300a00f]>
+TX <Pkt-5AA5 t=00 cmd=06 [33]>
+RX <Pkt-5AA5 t=03 cmd=06 [a00f]>
+Set t=00 n=33 to 4000 (read 4000)
+TX <Pkt-5AA5 t=01 cmd=08 [3300a00f]>
+TX <Pkt-5AA5 t=01 cmd=06 [33]>
+RX <Pkt-5AA5 t=03 cmd=06 [a00f]>
+Set t=01 n=33 to 4000 (read 4000)
+TX <Pkt-5AA5 t=02 cmd=08 [3300a00f]>
+TX <Pkt-5AA5 t=02 cmd=06 [33]>
+RX <Pkt-5AA5 t=03 cmd=06 [a00f]>
+Set t=02 n=33 to 4000 (read 4000)
+TX <Pkt-5AA5 t=00 cmd=08 [34000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [34]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=34 to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [34000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [34]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=34 to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [34000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [34]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=34 to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [35001400]>
+TX <Pkt-5AA5 t=00 cmd=06 [35]>
+RX <Pkt-5AA5 t=03 cmd=06 [1400]>
+Set t=00 n=35 to 20 (read 20)
+TX <Pkt-5AA5 t=01 cmd=08 [35001400]>
+TX <Pkt-5AA5 t=01 cmd=06 [35]>
+RX <Pkt-5AA5 t=03 cmd=06 [1400]>
+Set t=01 n=35 to 20 (read 20)
+TX <Pkt-5AA5 t=02 cmd=08 [35001400]>
+TX <Pkt-5AA5 t=02 cmd=06 [35]>
+RX <Pkt-5AA5 t=03 cmd=06 [1400]>
+Set t=02 n=35 to 20 (read 20)
+TX <Pkt-5AA5 t=00 cmd=08 [3600c409]>
+TX <Pkt-5AA5 t=00 cmd=06 [36]>
+RX <Pkt-5AA5 t=03 cmd=06 [c409]>
+Set t=00 n=36 to 2500 (read 2500)
+TX <Pkt-5AA5 t=01 cmd=08 [3600c409]>
+TX <Pkt-5AA5 t=01 cmd=06 [36]>
+RX <Pkt-5AA5 t=03 cmd=06 [c409]>
+Set t=01 n=36 to 2500 (read 2500)
+TX <Pkt-5AA5 t=02 cmd=08 [3600c409]>
+TX <Pkt-5AA5 t=02 cmd=06 [36]>
+RX <Pkt-5AA5 t=03 cmd=06 [c409]>
+Set t=02 n=36 to 2500 (read 2500)
+TX <Pkt-5AA5 t=00 cmd=08 [37000100]>
+TX <Pkt-5AA5 t=00 cmd=06 [37]>
+RX <Pkt-5AA5 t=03 cmd=06 [0100]>
+Set t=00 n=37 to 1 (read 1)
+TX <Pkt-5AA5 t=01 cmd=08 [37000100]>
+TX <Pkt-5AA5 t=01 cmd=06 [37]>
+RX <Pkt-5AA5 t=03 cmd=06 [0100]>
+Set t=01 n=37 to 1 (read 1)
+TX <Pkt-5AA5 t=02 cmd=08 [37000100]>
+TX <Pkt-5AA5 t=02 cmd=06 [37]>
+RX <Pkt-5AA5 t=03 cmd=06 [0100]>
+Set t=02 n=37 to 1 (read 1)
+TX <Pkt-5AA5 t=00 cmd=08 [38000a00]>
+TX <Pkt-5AA5 t=00 cmd=06 [38]>
+RX <Pkt-5AA5 t=03 cmd=06 [0a00]>
+Set t=00 n=38 to 10 (read 10)
+TX <Pkt-5AA5 t=01 cmd=08 [38000a00]>
+TX <Pkt-5AA5 t=01 cmd=06 [38]>
+RX <Pkt-5AA5 t=03 cmd=06 [0a00]>
+Set t=01 n=38 to 10 (read 10)
+TX <Pkt-5AA5 t=02 cmd=08 [38000a00]>
+TX <Pkt-5AA5 t=02 cmd=06 [38]>
+RX <Pkt-5AA5 t=03 cmd=06 [0a00]>
+Set t=02 n=38 to 10 (read 10)
+TX <Pkt-5AA5 t=00 cmd=08 [39000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [39]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=39 to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [39000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [39]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=39 to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [39000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [39]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=39 to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [3a000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [3a]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=3a to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [3a000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [3a]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=3a to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [3a000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [3a]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=3a to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [3b000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [3b]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=3b to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [3b000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [3b]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=3b to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [3b000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [3b]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=3b to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [3c000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [3c]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=3c to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [3c000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [3c]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=3c to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [3c000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [3c]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=3c to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [3d00e803]>
+TX <Pkt-5AA5 t=00 cmd=06 [3d]>
+RX <Pkt-5AA5 t=03 cmd=06 [e803]>
+Set t=00 n=3d to 1000 (read 1000)
+TX <Pkt-5AA5 t=01 cmd=08 [3d00e803]>
+TX <Pkt-5AA5 t=01 cmd=06 [3d]>
+RX <Pkt-5AA5 t=03 cmd=06 [e803]>
+Set t=01 n=3d to 1000 (read 1000)
+TX <Pkt-5AA5 t=02 cmd=08 [3d00e803]>
+TX <Pkt-5AA5 t=02 cmd=06 [3d]>
+RX <Pkt-5AA5 t=03 cmd=06 [e803]>
+Set t=02 n=3d to 1000 (read 1000)
+TX <Pkt-5AA5 t=00 cmd=08 [3e000300]>
+TX <Pkt-5AA5 t=00 cmd=06 [3e]>
+RX <Pkt-5AA5 t=03 cmd=06 [0300]>
+Set t=00 n=3e to 3 (read 3)
+TX <Pkt-5AA5 t=01 cmd=08 [3e000300]>
+TX <Pkt-5AA5 t=01 cmd=06 [3e]>
+RX <Pkt-5AA5 t=03 cmd=06 [0300]>
+Set t=01 n=3e to 3 (read 3)
+TX <Pkt-5AA5 t=02 cmd=08 [3e000300]>
+TX <Pkt-5AA5 t=02 cmd=06 [3e]>
+RX <Pkt-5AA5 t=03 cmd=06 [0300]>
+Set t=02 n=3e to 3 (read 3)
+TX <Pkt-5AA5 t=00 cmd=08 [3f000a00]>
+TX <Pkt-5AA5 t=00 cmd=06 [3f]>
+RX <Pkt-5AA5 t=03 cmd=06 [0a00]>
+Set t=00 n=3f to 10 (read 10)
+TX <Pkt-5AA5 t=01 cmd=08 [3f000a00]>
+TX <Pkt-5AA5 t=01 cmd=06 [3f]>
+RX <Pkt-5AA5 t=03 cmd=06 [0a00]>
+Set t=01 n=3f to 10 (read 10)
+TX <Pkt-5AA5 t=02 cmd=08 [3f000a00]>
+TX <Pkt-5AA5 t=02 cmd=06 [3f]>
+RX <Pkt-5AA5 t=03 cmd=06 [0a00]>
+Set t=02 n=3f to 10 (read 10)
+TX <Pkt-5AA5 t=00 cmd=08 [40000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [40]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=40 to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [40000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [40]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=40 to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [40000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [40]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=40 to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [41000004]>
+TX <Pkt-5AA5 t=00 cmd=06 [41]>
+RX <Pkt-5AA5 t=03 cmd=06 [0004]>
+Set t=00 n=41 to 1024 (read 1024)
+TX <Pkt-5AA5 t=01 cmd=08 [41000004]>
+TX <Pkt-5AA5 t=01 cmd=06 [41]>
+RX <Pkt-5AA5 t=03 cmd=06 [0004]>
+Set t=01 n=41 to 1024 (read 1024)
+TX <Pkt-5AA5 t=02 cmd=08 [41000004]>
+TX <Pkt-5AA5 t=02 cmd=06 [41]>
+RX <Pkt-5AA5 t=03 cmd=06 [0004]>
+Set t=02 n=41 to 1024 (read 1024)
+TX <Pkt-5AA5 t=00 cmd=08 [42000004]>
+TX <Pkt-5AA5 t=00 cmd=06 [42]>
+RX <Pkt-5AA5 t=03 cmd=06 [0004]>
+Set t=00 n=42 to 1024 (read 1024)
+TX <Pkt-5AA5 t=01 cmd=08 [42000004]>
+TX <Pkt-5AA5 t=01 cmd=06 [42]>
+RX <Pkt-5AA5 t=03 cmd=06 [0004]>
+Set t=01 n=42 to 1024 (read 1024)
+TX <Pkt-5AA5 t=02 cmd=08 [42000004]>
+TX <Pkt-5AA5 t=02 cmd=06 [42]>
+RX <Pkt-5AA5 t=03 cmd=06 [0004]>
+Set t=02 n=42 to 1024 (read 1024)
+TX <Pkt-5AA5 t=00 cmd=08 [43000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [43]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=43 to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [43000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [43]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=43 to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [43000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [43]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=43 to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [44000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [44]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=44 to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [44000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [44]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=44 to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [44000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [44]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=44 to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [45000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [45]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=45 to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [45000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [45]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=45 to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [45000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [45]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=45 to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [46000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [46]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=46 to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [46000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [46]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=46 to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [46000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [46]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=46 to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [47000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [47]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=47 to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [47000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [47]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=47 to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [47000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [47]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=47 to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [480071f8]>
+TX <Pkt-5AA5 t=00 cmd=06 [48]>
+RX <Pkt-5AA5 t=03 cmd=06 [58f3]>
+Set t=00 n=48 to -1935 (read -3240)
+TX <Pkt-5AA5 t=01 cmd=08 [48005905]>
+TX <Pkt-5AA5 t=01 cmd=06 [48]>
+RX <Pkt-5AA5 t=03 cmd=06 [45fd]>
+Set t=01 n=48 to 1369 (read -699)
+TX <Pkt-5AA5 t=02 cmd=08 [4800ecf6]>
+TX <Pkt-5AA5 t=02 cmd=06 [48]>
+RX <Pkt-5AA5 t=03 cmd=06 [18f1]>
+Set t=02 n=48 to -2324 (read -3816)
+TX <Pkt-5AA5 t=00 cmd=08 [49000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [49]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=49 to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [49000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [49]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=49 to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [49002001]>
+TX <Pkt-5AA5 t=02 cmd=06 [49]>
+RX <Pkt-5AA5 t=03 cmd=06 [2001]>
+Set t=02 n=49 to 288 (read 288)
+TX <Pkt-5AA5 t=00 cmd=08 [4a000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [4a]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=4a to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [4a000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [4a]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=4a to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [4a000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [4a]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=4a to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [4b000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [4b]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=4b to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [4b000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [4b]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=4b to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [4b000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [4b]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=4b to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [4c001100]>
+TX <Pkt-5AA5 t=00 cmd=06 [4c]>
+RX <Pkt-5AA5 t=03 cmd=06 [69c9]>
+Set t=00 n=4c to 17 (read -13975)
+TX <Pkt-5AA5 t=01 cmd=08 [4c0036f0]>
+TX <Pkt-5AA5 t=01 cmd=06 [4c]>
+RX <Pkt-5AA5 t=03 cmd=06 [36f0]>
+Set t=01 n=4c to -4042 (read -4042)
+TX <Pkt-5AA5 t=02 cmd=08 [4c000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [4c]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=4c to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [4d007f0b]>
+TX <Pkt-5AA5 t=00 cmd=06 [4d]>
+RX <Pkt-5AA5 t=03 cmd=06 [7f0b]>
+Set t=00 n=4d to 2943 (read 2943)
+TX <Pkt-5AA5 t=01 cmd=08 [4d00ac0b]>
+TX <Pkt-5AA5 t=01 cmd=06 [4d]>
+RX <Pkt-5AA5 t=03 cmd=06 [ac0b]>
+Set t=01 n=4d to 2988 (read 2988)
+TX <Pkt-5AA5 t=02 cmd=08 [4d00700b]>
+TX <Pkt-5AA5 t=02 cmd=06 [4d]>
+RX <Pkt-5AA5 t=03 cmd=06 [700b]>
+Set t=02 n=4d to 2928 (read 2928)
+TX <Pkt-5AA5 t=00 cmd=08 [4e00f055]>
+TX <Pkt-5AA5 t=00 cmd=06 [4e]>
+RX <Pkt-5AA5 t=03 cmd=06 [f055]>
+Set t=00 n=4e to 22000 (read 22000)
+TX <Pkt-5AA5 t=01 cmd=08 [4e00f055]>
+TX <Pkt-5AA5 t=01 cmd=06 [4e]>
+RX <Pkt-5AA5 t=03 cmd=06 [f055]>
+Set t=01 n=4e to 22000 (read 22000)
+TX <Pkt-5AA5 t=02 cmd=08 [4e00f055]>
+TX <Pkt-5AA5 t=02 cmd=06 [4e]>
+RX <Pkt-5AA5 t=03 cmd=06 [f055]>
+Set t=02 n=4e to 22000 (read 22000)
+TX <Pkt-5AA5 t=00 cmd=08 [4f003200]>
+TX <Pkt-5AA5 t=00 cmd=06 [4f]>
+RX <Pkt-5AA5 t=03 cmd=06 [3200]>
+Set t=00 n=4f to 50 (read 50)
+TX <Pkt-5AA5 t=01 cmd=08 [4f003200]>
+TX <Pkt-5AA5 t=01 cmd=06 [4f]>
+RX <Pkt-5AA5 t=03 cmd=06 [3200]>
+Set t=01 n=4f to 50 (read 50)
+TX <Pkt-5AA5 t=02 cmd=08 [4f003200]>
+TX <Pkt-5AA5 t=02 cmd=06 [4f]>
+RX <Pkt-5AA5 t=03 cmd=06 [3200]>
+Set t=02 n=4f to 50 (read 50)
+TX <Pkt-5AA5 t=00 cmd=08 [5000d007]>
+TX <Pkt-5AA5 t=00 cmd=06 [50]>
+RX <Pkt-5AA5 t=03 cmd=06 [d007]>
+Set t=00 n=50 to 2000 (read 2000)
+TX <Pkt-5AA5 t=01 cmd=08 [5000d007]>
+TX <Pkt-5AA5 t=01 cmd=06 [50]>
+RX <Pkt-5AA5 t=03 cmd=06 [d007]>
+Set t=01 n=50 to 2000 (read 2000)
+TX <Pkt-5AA5 t=02 cmd=08 [5000d007]>
+TX <Pkt-5AA5 t=02 cmd=06 [50]>
+RX <Pkt-5AA5 t=03 cmd=06 [d007]>
+Set t=02 n=50 to 2000 (read 2000)
+TX <Pkt-5AA5 t=00 cmd=08 [51008813]>
+TX <Pkt-5AA5 t=00 cmd=06 [51]>
+RX <Pkt-5AA5 t=03 cmd=06 [8813]>
+Set t=00 n=51 to 5000 (read 5000)
+TX <Pkt-5AA5 t=01 cmd=08 [51008813]>
+TX <Pkt-5AA5 t=01 cmd=06 [51]>
+RX <Pkt-5AA5 t=03 cmd=06 [8813]>
+Set t=01 n=51 to 5000 (read 5000)
+TX <Pkt-5AA5 t=02 cmd=08 [51008813]>
+TX <Pkt-5AA5 t=02 cmd=06 [51]>
+RX <Pkt-5AA5 t=03 cmd=06 [8813]>
+Set t=02 n=51 to 5000 (read 5000)
+TX <Pkt-5AA5 t=00 cmd=08 [5200c800]>
+TX <Pkt-5AA5 t=00 cmd=06 [52]>
+RX <Pkt-5AA5 t=03 cmd=06 [c800]>
+Set t=00 n=52 to 200 (read 200)
+TX <Pkt-5AA5 t=01 cmd=08 [5200c800]>
+TX <Pkt-5AA5 t=01 cmd=06 [52]>
+RX <Pkt-5AA5 t=03 cmd=06 [c800]>
+Set t=01 n=52 to 200 (read 200)
+TX <Pkt-5AA5 t=02 cmd=08 [5200c800]>
+TX <Pkt-5AA5 t=02 cmd=06 [52]>
+RX <Pkt-5AA5 t=03 cmd=06 [c800]>
+Set t=02 n=52 to 200 (read 200)
+TX <Pkt-5AA5 t=00 cmd=08 [53000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [53]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=53 to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [53000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [53]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=53 to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [53000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [53]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=53 to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [54000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [54]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=54 to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [54000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [54]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=54 to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [54000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [54]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=54 to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [55000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [55]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=55 to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [55000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [55]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=55 to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [55000e00]>
+TX <Pkt-5AA5 t=02 cmd=06 [55]>
+RX <Pkt-5AA5 t=03 cmd=06 [0e00]>
+Set t=02 n=55 to 14 (read 14)
+TX <Pkt-5AA5 t=00 cmd=08 [56000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [56]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=56 to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [56000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [56]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=56 to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [56001300]>
+TX <Pkt-5AA5 t=02 cmd=06 [56]>
+RX <Pkt-5AA5 t=03 cmd=06 [1300]>
+Set t=02 n=56 to 19 (read 19)
+TX <Pkt-5AA5 t=00 cmd=08 [57000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [57]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=57 to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [57000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [57]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=57 to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [57001700]>
+TX <Pkt-5AA5 t=02 cmd=06 [57]>
+RX <Pkt-5AA5 t=03 cmd=06 [1700]>
+Set t=02 n=57 to 23 (read 23)
+TX <Pkt-5AA5 t=00 cmd=08 [58000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [58]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=58 to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [58000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [58]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=58 to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [58000100]>
+TX <Pkt-5AA5 t=02 cmd=06 [58]>
+RX <Pkt-5AA5 t=03 cmd=06 [0100]>
+Set t=02 n=58 to 1 (read 1)
+TX <Pkt-5AA5 t=00 cmd=08 [59000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [59]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=59 to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [59000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [59]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=59 to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [59001f01]>
+TX <Pkt-5AA5 t=02 cmd=06 [59]>
+RX <Pkt-5AA5 t=03 cmd=06 [1f01]>
+Set t=02 n=59 to 287 (read 287)
+TX <Pkt-5AA5 t=00 cmd=08 [5a000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [5a]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=5a to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [5a000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [5a]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=5a to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [5a006bff]>
+TX <Pkt-5AA5 t=02 cmd=06 [5a]>
+RX <Pkt-5AA5 t=03 cmd=06 [6bff]>
+Set t=02 n=5a to -149 (read -149)
+TX <Pkt-5AA5 t=00 cmd=08 [5b000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [5b]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=5b to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [5b000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [5b]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=5b to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [5b00caff]>
+TX <Pkt-5AA5 t=02 cmd=06 [5b]>
+RX <Pkt-5AA5 t=03 cmd=06 [caff]>
+Set t=02 n=5b to -54 (read -54)
+TX <Pkt-5AA5 t=00 cmd=08 [5c000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [5c]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=5c to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [5c000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [5c]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=5c to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [5c004b00]>
+TX <Pkt-5AA5 t=02 cmd=06 [5c]>
+RX <Pkt-5AA5 t=03 cmd=06 [4b00]>
+Set t=02 n=5c to 75 (read 75)
+TX <Pkt-5AA5 t=00 cmd=08 [5d000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [5d]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=5d to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [5d000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [5d]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=5d to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [5d00d1ff]>
+TX <Pkt-5AA5 t=02 cmd=06 [5d]>
+RX <Pkt-5AA5 t=03 cmd=06 [d1ff]>
+Set t=02 n=5d to -47 (read -47)
+TX <Pkt-5AA5 t=00 cmd=08 [5e000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [5e]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=5e to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [5e000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [5e]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=5e to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [5e000100]>
+TX <Pkt-5AA5 t=02 cmd=06 [5e]>
+RX <Pkt-5AA5 t=03 cmd=06 [0100]>
+Set t=02 n=5e to 1 (read 1)
+TX <Pkt-5AA5 t=00 cmd=08 [5f00e803]>
+TX <Pkt-5AA5 t=00 cmd=06 [5f]>
+RX <Pkt-5AA5 t=03 cmd=06 [e803]>
+Set t=00 n=5f to 1000 (read 1000)
+TX <Pkt-5AA5 t=01 cmd=08 [5f00e803]>
+TX <Pkt-5AA5 t=01 cmd=06 [5f]>
+RX <Pkt-5AA5 t=03 cmd=06 [e803]>
+Set t=01 n=5f to 1000 (read 1000)
+TX <Pkt-5AA5 t=02 cmd=08 [5f00e803]>
+TX <Pkt-5AA5 t=02 cmd=06 [5f]>
+RX <Pkt-5AA5 t=03 cmd=06 [e803]>
+Set t=02 n=5f to 1000 (read 1000)
+TX <Pkt-5AA5 t=00 cmd=08 [6000e803]>
+TX <Pkt-5AA5 t=00 cmd=06 [60]>
+RX <Pkt-5AA5 t=03 cmd=06 [e803]>
+Set t=00 n=60 to 1000 (read 1000)
+TX <Pkt-5AA5 t=01 cmd=08 [6000e803]>
+TX <Pkt-5AA5 t=01 cmd=06 [60]>
+RX <Pkt-5AA5 t=03 cmd=06 [e803]>
+Set t=01 n=60 to 1000 (read 1000)
+TX <Pkt-5AA5 t=02 cmd=08 [6000e803]>
+TX <Pkt-5AA5 t=02 cmd=06 [60]>
+RX <Pkt-5AA5 t=03 cmd=06 [e803]>
+Set t=02 n=60 to 1000 (read 1000)
+TX <Pkt-5AA5 t=00 cmd=08 [6100e803]>
+TX <Pkt-5AA5 t=00 cmd=06 [61]>
+RX <Pkt-5AA5 t=03 cmd=06 [e803]>
+Set t=00 n=61 to 1000 (read 1000)
+TX <Pkt-5AA5 t=01 cmd=08 [6100e803]>
+TX <Pkt-5AA5 t=01 cmd=06 [61]>
+RX <Pkt-5AA5 t=03 cmd=06 [e803]>
+Set t=01 n=61 to 1000 (read 1000)
+TX <Pkt-5AA5 t=02 cmd=08 [6100e803]>
+TX <Pkt-5AA5 t=02 cmd=06 [61]>
+RX <Pkt-5AA5 t=03 cmd=06 [e803]>
+Set t=02 n=61 to 1000 (read 1000)
+TX <Pkt-5AA5 t=00 cmd=08 [6200b501]>
+TX <Pkt-5AA5 t=00 cmd=06 [62]>
+RX <Pkt-5AA5 t=03 cmd=06 [b501]>
+Set t=00 n=62 to 437 (read 437)
+TX <Pkt-5AA5 t=01 cmd=08 [6200b501]>
+TX <Pkt-5AA5 t=01 cmd=06 [62]>
+RX <Pkt-5AA5 t=03 cmd=06 [b501]>
+Set t=01 n=62 to 437 (read 437)
+TX <Pkt-5AA5 t=02 cmd=08 [6200b501]>
+TX <Pkt-5AA5 t=02 cmd=06 [62]>
+RX <Pkt-5AA5 t=03 cmd=06 [b501]>
+Set t=02 n=62 to 437 (read 437)
+TX <Pkt-5AA5 t=00 cmd=08 [63000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [63]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=63 to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [63000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [63]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=63 to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [63000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [63]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=63 to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [6400a006]>
+TX <Pkt-5AA5 t=00 cmd=06 [64]>
+RX <Pkt-5AA5 t=03 cmd=06 [a006]>
+Set t=00 n=64 to 1696 (read 1696)
+TX <Pkt-5AA5 t=01 cmd=08 [64007e08]>
+TX <Pkt-5AA5 t=01 cmd=06 [64]>
+RX <Pkt-5AA5 t=03 cmd=06 [7e08]>
+Set t=01 n=64 to 2174 (read 2174)
+TX <Pkt-5AA5 t=02 cmd=08 [6400580a]>
+TX <Pkt-5AA5 t=02 cmd=06 [64]>
+RX <Pkt-5AA5 t=03 cmd=06 [580a]>
+Set t=02 n=64 to 2648 (read 2648)
+TX <Pkt-5AA5 t=00 cmd=08 [65008403]>
+TX <Pkt-5AA5 t=00 cmd=06 [65]>
+RX <Pkt-5AA5 t=03 cmd=06 [8403]>
+Set t=00 n=65 to 900 (read 900)
+TX <Pkt-5AA5 t=01 cmd=08 [65008403]>
+TX <Pkt-5AA5 t=01 cmd=06 [65]>
+RX <Pkt-5AA5 t=03 cmd=06 [8403]>
+Set t=01 n=65 to 900 (read 900)
+TX <Pkt-5AA5 t=02 cmd=08 [65008403]>
+TX <Pkt-5AA5 t=02 cmd=06 [65]>
+RX <Pkt-5AA5 t=03 cmd=06 [8403]>
+Set t=02 n=65 to 900 (read 900)
+TX <Pkt-5AA5 t=00 cmd=08 [66000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [66]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=66 to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [66000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [66]>
+RX <Pkt-5AA5 t=03 cmd=06 [0100]>
+Set t=01 n=66 to 0 (read 1)
+TX <Pkt-5AA5 t=02 cmd=08 [66000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [66]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=66 to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [67000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [67]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=67 to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [67000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [67]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=67 to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [67000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [67]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=67 to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [68000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [68]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=68 to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [68000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [68]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=68 to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [68000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [68]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=68 to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [69000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [69]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=69 to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [69000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [69]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=69 to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [69007000]>
+TX <Pkt-5AA5 t=02 cmd=06 [69]>
+RX <Pkt-5AA5 t=03 cmd=06 [7000]>
+Set t=02 n=69 to 112 (read 112)
+TX <Pkt-5AA5 t=00 cmd=08 [6a000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [6a]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=6a to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [6a000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [6a]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=6a to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [6a000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [6a]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=6a to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [6b000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [6b]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=6b to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [6b000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [6b]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=6b to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [6b000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [6b]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=6b to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [6c000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [6c]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=6c to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [6c000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [6c]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=6c to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [6c000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [6c]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=6c to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [6d000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [6d]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=6d to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [6d000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [6d]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=6d to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [6d000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [6d]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=6d to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [6e000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [6e]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=6e to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [6e000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [6e]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=6e to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [6e000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [6e]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=6e to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [6f002a00]>
+TX <Pkt-5AA5 t=00 cmd=06 [6f]>
+RX <Pkt-5AA5 t=03 cmd=06 [2e00]>
+Set t=00 n=6f to 42 (read 46)
+TX <Pkt-5AA5 t=01 cmd=08 [6f002f00]>
+TX <Pkt-5AA5 t=01 cmd=06 [6f]>
+RX <Pkt-5AA5 t=03 cmd=06 [2a00]>
+Set t=01 n=6f to 47 (read 42)
+TX <Pkt-5AA5 t=02 cmd=08 [6f002e00]>
+TX <Pkt-5AA5 t=02 cmd=06 [6f]>
+RX <Pkt-5AA5 t=03 cmd=06 [3700]>
+Set t=02 n=6f to 46 (read 55)
+TX <Pkt-5AA5 t=00 cmd=08 [70001100]>
+TX <Pkt-5AA5 t=00 cmd=06 [70]>
+RX <Pkt-5AA5 t=03 cmd=06 [2500]>
+Set t=00 n=70 to 17 (read 37)
+TX <Pkt-5AA5 t=01 cmd=08 [70004300]>
+TX <Pkt-5AA5 t=01 cmd=06 [70]>
+RX <Pkt-5AA5 t=03 cmd=06 [3100]>
+Set t=01 n=70 to 67 (read 49)
+TX <Pkt-5AA5 t=02 cmd=08 [70003600]>
+TX <Pkt-5AA5 t=02 cmd=06 [70]>
+RX <Pkt-5AA5 t=03 cmd=06 [2f00]>
+Set t=02 n=70 to 54 (read 47)
+TX <Pkt-5AA5 t=00 cmd=08 [71000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [71]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=71 to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [71000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [71]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=71 to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [71000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [71]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=71 to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [72000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [72]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=72 to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [72000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [72]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=72 to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [72000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [72]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=72 to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [73000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [73]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=73 to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [73000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [73]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=73 to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [73000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [73]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=73 to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [74000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [74]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=74 to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [74000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [74]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=74 to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [74000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [74]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=74 to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [75000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [75]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=75 to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [75000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [75]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=75 to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [75000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [75]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=75 to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [76000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [76]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=76 to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [76000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [76]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=76 to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [76000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [76]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=76 to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [77000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [77]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=77 to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [77000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [77]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=77 to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [77000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [77]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=77 to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [78000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [78]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=78 to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [78000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [78]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=78 to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [78000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [78]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=78 to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [79000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [79]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=79 to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [79000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [79]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=79 to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [79000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [79]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=79 to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [7a000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [7a]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=7a to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [7a000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [7a]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=7a to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [7a000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [7a]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=7a to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [7b000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [7b]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=7b to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [7b000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [7b]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=7b to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [7b000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [7b]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=7b to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [7c000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [7c]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=7c to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [7c000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [7c]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=7c to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [7c000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [7c]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=7c to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [7d000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [7d]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=7d to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [7d000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [7d]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=7d to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [7d000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [7d]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=7d to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [7e000000]>
+TX <Pkt-5AA5 t=00 cmd=06 [7e]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=00 n=7e to 0 (read 0)
+TX <Pkt-5AA5 t=01 cmd=08 [7e000000]>
+TX <Pkt-5AA5 t=01 cmd=06 [7e]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=01 n=7e to 0 (read 0)
+TX <Pkt-5AA5 t=02 cmd=08 [7e000000]>
+TX <Pkt-5AA5 t=02 cmd=06 [7e]>
+RX <Pkt-5AA5 t=03 cmd=06 [0000]>
+Set t=02 n=7e to 0 (read 0)
+TX <Pkt-5AA5 t=00 cmd=08 [7f007300]>
+TX <Pkt-5AA5 t=00 cmd=06 [7f]>
+RX <Pkt-5AA5 t=03 cmd=06 [7300]>
+Set t=00 n=7f to 115 (read 115)
+TX <Pkt-5AA5 t=01 cmd=08 [7f007300]>
+TX <Pkt-5AA5 t=01 cmd=06 [7f]>
+RX <Pkt-5AA5 t=03 cmd=06 [7300]>
+Set t=01 n=7f to 115 (read 115)
+TX <Pkt-5AA5 t=02 cmd=08 [7f007300]>
+TX <Pkt-5AA5 t=02 cmd=06 [7f]>
+RX <Pkt-5AA5 t=03 cmd=06 [7300]>
+Set t=02 n=7f to 115 (read 115)
+TX <Pkt-5AA5 t=00 cmd=05 [00]>
+RX <Pkt-5AA5 t=03 cmd=05 [00]>
+Saved params on MCU 0
+TX <Pkt-5AA5 t=01 cmd=05 [00]>
+RX <Pkt-5AA5 t=03 cmd=05 [01]>
+Saved params on MCU 1
+TX <Pkt-5AA5 t=02 cmd=05 [00]>
+RX <Pkt-5AA5 t=03 cmd=05 [02]>
+Saved params on MCU 2
