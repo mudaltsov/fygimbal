@@ -1,62 +1,122 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<script type="text/javascript" src="lib/smoothie.js"></script>
-	<script type="text/javascript">
+<script type="text/javascript" src="lib/smoothie.js"></script>
+<script type="text/javascript">
 
-		var socket = new WebSocket("ws://tucoflyer.local:8893");
-		var paramList = [];
-		var paramSeries = {};
+var socket = new WebSocket("ws://tucoflyer.local:8893");
 
-		socket.addEventListener('open', function (event) {
-			var commands = [];
-			for (param of paramList) {
-				for (var target of [0,1,2]) {
-					commands.push(['get', target, param].join(' '));
-				}
-			}
-			socket.send(commands.join('\n'));
-		});
+var paramPollList = [];
+var paramChartSeries = {};
+var outputs = {};
 
-		socket.addEventListener('message', function (event) {
-			var tokens = event.data.split(" ");
-			if (tokens[0] == 'value') {
-				var target = parseInt(tokens[1], 0);
-				var number = parseInt(tokens[2], 0);
-				var value = parseInt(tokens[3], 0);
-				var series = paramSeries[number];
-				if (series) {
-					series[target].append(new Date().getTime(), value);
-					socket.send(['get', target, number].join(' '));
- 				}
-			}
-		});
+function updateOutput(target, param, value) {
+    var list = outputs[target + param * 4] || [];
+    for (output of list) {
+        output.value = value;
+    }
+}
 
-		function uiSetup() {
-			for (canvas of document.querySelectorAll('canvas.param')) {
+socket.addEventListener('open', function (event) {
+    var commands = [];
+    for (param of paramPollList) {
+        for (var target of [0,1,2]) {
+            commands.push(['get', target, param].join(' '));
+        }
+    }
+    socket.send(commands.join('\n'));
+});
 
-				var param = parseInt(canvas.dataset['param'], 0);
-				paramList.push(param);
+socket.addEventListener('message', function (event) {
+    var tokens = event.data.split(" ");
+    if (tokens[0] == 'value') {
+        var target = parseInt(tokens[1], 0);
+        var number = parseInt(tokens[2], 0);
+        var value = parseInt(tokens[3], 0);
+        updateOutput(target, number, value);
+        var series = paramChartSeries[number];
+        if (series) {
+            series[target].append(new Date().getTime(), value);
+            socket.send(['get', target, number].join(' '));
+        }
+    }
+});
 
-				var chart = new SmoothieChart();
-				var series = [
-					new TimeSeries(),
-					new TimeSeries(),
-					new TimeSeries(),
-				];
-				paramSeries[param] = series;
+function uiSetup() {
+    document.querySelectorAll('canvas.param').forEach( function(canvas) {
+        var param = parseInt(canvas.dataset['param'], 0);
+        paramPollList.push(param);
 
-				chart.addTimeSeries(series[0], { strokeStyle: 'rgba(255, 96, 96, 1)', lineWidth: 3 });
-				chart.addTimeSeries(series[1], { strokeStyle: 'rgba(96, 255, 96, 1)', lineWidth: 3 });
-				chart.addTimeSeries(series[2], { strokeStyle: 'rgba(96, 96, 255, 1)', lineWidth: 3 });
+        var chart = new SmoothieChart();
+        var series = [
+            new TimeSeries(),
+            new TimeSeries(),
+            new TimeSeries(),
+        ];
+        paramChartSeries[param] = series;
 
-				chart.streamTo(canvas, 500);
-			}
-		}
+        chart.addTimeSeries(series[0], { strokeStyle: 'rgba(255, 96, 96, 1)', lineWidth: 3 });
+        chart.addTimeSeries(series[1], { strokeStyle: 'rgba(96, 255, 96, 1)', lineWidth: 3 });
+        chart.addTimeSeries(series[2], { strokeStyle: 'rgba(96, 96, 255, 1)', lineWidth: 3 });
 
-	</script>
+        chart.streamTo(canvas, 500);
+    });
+
+    document.querySelectorAll('output.param').forEach( function(output) {
+        var param = parseInt(output.dataset['param'], 0);
+        var target = parseInt(output.dataset['target'], 0);
+        var arbitrary_key = target + param * 4;
+
+        if (!outputs[arbitrary_key]) {
+            outputs[arbitrary_key] = [];
+        }
+        outputs[arbitrary_key].push(output);
+    });
+
+    document.querySelectorAll('input.param').forEach( function(input) {
+        var param = parseInt(input.dataset['param'], 0);
+        var target = parseInt(input.dataset['target'], 0);
+
+        input.addEventListener('input', function() {
+            updateOutput(target, param, input.value);
+            socket.send(['set', target, param, input.value|0].join(' '));
+        });
+    });
+
+    document.querySelectorAll('input.motors').forEach( function(input) {
+        input.addEventListener('change', function() {
+            socket.send(['motors', input.checked|0].join(' '));
+        });
+    });
+}
+
+</script>
+<style>
+
+body {
+    font: 14px sans-serif;
+}
+
+input.param {
+    width: 100%;
+}
+
+label.motors {
+    border: 2px solid #f44;
+    font: 150%;
+    font-weight: bold;
+    padding: 0.5em;
+    margin: 1em 0;
+    width: 500px;
+    display: block;
+}
+
+</style>
 </head>
 <body onload="uiSetup()">
+
+<label class="motors"><input class="motors" type="checkbox">Enable Motors</label>
+
 <table>
 
 <tr><td><canvas class="param" width="800" height="160" data-param="0x02"></canvas></td><td> 02 <br/> </td></tr>
@@ -64,7 +124,12 @@
 <tr><td><canvas class="param" width="800" height="160" data-param="0x04"></canvas></td><td> 04 <br/> Angular rate (gyro)</td></tr>
 <tr><td><canvas class="param" width="800" height="160" data-param="0x06"></canvas></td><td> 06 <br/> </td></tr>
 <tr><td><canvas class="param" width="800" height="160" data-param="0x07"></canvas></td><td> 07 <br/> </td></tr>
-<tr><td><canvas class="param" width="800" height="160" data-param="0x08"></canvas></td><td> 08 <br/> </td></tr>
+
+<tr><td><canvas class="param" width="800" height="160" data-param="0x08"></canvas></td><td> 08 <br/> Target heading </td></tr>
+<tr><td><input type="range" class="param" min="-32767" max="32767" value="0" data-param="0x08" data-target="0"/></td><td><output class="param" data-param="0x08" data-target="0"></output></td></tr>
+<tr><td><input type="range" class="param" min="-32767" max="32767" value="0" data-param="0x08" data-target="1"/></td><td><output class="param" data-param="0x08" data-target="1"></output></td></tr>
+<tr><td><input type="range" class="param" min="-32767" max="32767" value="0" data-param="0x08" data-target="2"/></td><td><output class="param" data-param="0x08" data-target="2"></output></td></tr>
+
 <tr><td><canvas class="param" width="800" height="160" data-param="0x09"></canvas></td><td> 09 <br/> Angle (gyro) </td></tr>
 <tr><td><canvas class="param" width="800" height="160" data-param="0x28"></canvas></td><td> 28 <br/> </td></tr>
 <tr><td><canvas class="param" width="800" height="160" data-param="0x2c"></canvas></td><td> 2C <br/> Joint angles (processed encoder data)</td></tr>

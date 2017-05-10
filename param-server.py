@@ -23,6 +23,9 @@ def fn(websocket, path):
 					r = gimbal.getParam(target=int(tokens[1]), number=int(tokens[2]))
 					yield from websocket.send('value %s %s %s' % (tokens[1], tokens[2], r))
 
+				elif tokens[0] == 'motors':
+					gimbal.setMotors(int(tokens[1]))
+
 				else:
 					raise ValueError("Unrecognized command %r" % tokens[0])
 
