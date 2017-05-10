@@ -1,0 +1,203 @@
+Firmware cryptanalysis is fun, you should play along!
+Grab firmware from http://feiyu-tech.com and run compare.py (or other tools)
+
+Even if this doesn't help in actually getting the firmware decrypted,
+it might provide some further insight into how the gimbals work.
+
+
+*** Observations ***
+
+Micah has shown that the Mini 3D gimbal uses an STM32F103C8 for each axis:
+http://i.imgur.com/22EBulq.jpg
+
+1 KB block size matches the page size from the flash module organization:
+http://www.st.com/resource/en/programming_manual/cd00283419.pdf
+
+There is only 20 KB of SRAM, so presumably the firmware is decrypted and
+flashed one page at a time. There are many duplicated blocks, so each block
+is encrypted with the same key and initialization vector.
+
+Mini 3D and most other gimbal firmware files have 97 blocks per axis. This is
+a strange size - between 64 KB from the F103C8 and 128 KB from the F103CB.
+Could be padding leftover from an older design (maybe an extra 32 KB chip?).
+The firmware file format can support different sizes, but only newer gimbal
+models such as G5 and SPG use smaller files without empty blocks.
+
+The shortest common data length is 16 bytes (128 bits), starting at the
+beginning of a 1024-byte block. So the encryption is probably AES, also hinted
+by strings in the updater exe:
+"C:\FY\Gimbal\Gimbal-3Axis\UPDATE\AES_UPDATE-YT-MAKE\Release\AES_UPDATE.pdb"
+
+There is more unique data in the third firmware image, which matches Micah's
+theory and observations that one of the 3 MCU targets contains more logic
+responsible for the entire gimbal's operation.
+
+The Mini 3D update 1.14 to 1.15 ("Add function: support for new IMU module.")
+mostly affects the last MCU. Data in the first two MCUs remains identical
+until offset 0x180f0. A long run of empty blocks also stops at 96K (0x18000).
+So the last block could contain parameter data instead of code. If it's mapped
+to the same address space as the serial commands for 16-bit parameters, the
+version param 0x7f would be at offset 0x180fe in the firmware image. Rounding
+down to the nearest 16-byte cipher block boundary gives the observed 0x180f0.
+
+TODO: check for differences between each axis in the parameters reported over
+the serial protocol (except for the live updating values). The first 48 bytes
+at 0x18000 are equal between all 3 MCUs, and the next 16 bytes for [0] and [1].
+
+TODO: find out if the index of firmware images in the file matches the target
+numbers from the serial protocol. Should be possible to see from the traces
+taken during a firmware update, comparing with unique blocks form the files.
+
+
+*** Results of compare.py with some files ***
+
+File 0: 3-axis, firmware images: 97, 97, 97 KB in 'G4S-V1.24.bin'
+File 1: 3-axis, firmware images: 97, 97, 97 KB in 'G4S-V1.25.bin'
+File 2: 3-axis, firmware images: 97, 97, 97 KB in 'MINI3D Firmware V1.12.bin'
+File 3: 3-axis, firmware images: 97, 97, 97 KB in 'MINI3D Firmware V1.14 - Rocker speed mode .bin'
+File 4: 3-axis, firmware images: 97, 97, 97 KB in 'MINI3D Firmware V1.15 - Rocker speed mode .bin'
+
+Found 327 unique / 1455 total 1024-byte blocks.
+Probably empty block used 813 times:  [bb7ca9f1f972b9c7 ... 7ad604c1ae31f9da]
+
+Found 20455 unique / 93120 total 16-byte chunks.
+
+Numer of times each unique chunk was used:
+used  chunks
+   1   15430
+   2    1713
+   3    1439
+   4       1
+   5     759
+   6       1
+  10     322
+  15     726
+ 813      64
+
+
+Output format:
+
+F[I]:L   file index F, image index I with column label L
+
+OOOOOO   probably empty value
+######   unique value
+=====C   duplicate value at this offset only
++NHHHC   duplicate value at multiple offsets
++++++C   last duplicate value at multiple offsets
+
+C is the column with distinct duplicate values in each row
+N is the column of the next duplicate value below
+0xHHH00 is a hex distance to the next duplicate value below
+
+
+All axis comparison:
+
+gimbal model:         G4S     G4S     Mini3D  Mini3D  Mini3D     G4S     G4S     Mini3D  Mini3D  Mini3D     G4S     G4S     Mini3D  Mini3D  Mini3D
+firmware versions:    1.24    1.25    1.12    1.14    1.15       1.24    1.25    1.12    1.14    1.15       1.24    1.25    1.12    1.14    1.15
+
+offset    length      0[0]:L  1[0]:M  2[0]:N  3[0]:O  4[0]:P     0[1]:Q  1[1]:R  2[1]:S  3[1]:T  4[1]:U     0[2]:V  1[2]:W  2[2]:X  3[2]:Y  4[2]:Z   bytes + KB
+0x00000   0x00400     ######  ######  ######  =====O  =====O     ######  ######  =====S  =====S  =====S     ######  ######  ######  ######  ######            1k
+0x00400   0x02d30     ======  ======  ======  ======  ======     ======  ======  ======  ======  ======     ======  ======  ======  ======  ======     304 + 11k
+0x03130   0x003b0     =====L  =====L  =====L  =====L  =====L     =====L  =====L  =====L  =====L  =====L     =====V  =====V  =====V  =====V  =====V     944
+0x034e0   0x00320     ######  ######  =====N  =====N  =====N     ######  ######  =====S  =====S  =====S     =====V  =====V  =====V  =====V  =====V     800
+0x03800   0x01060     =====L  =====L  =====L  =====L  =====L     =====L  =====L  =====L  =====L  =====L     =====V  =====V  =====V  =====V  =====V      96 +  4k
+0x04860   0x003a0     ######  ######  ######  =====O  =====O     ######  ######  =====S  =====S  =====S     =====V  =====V  =====V  =====V  =====V     928
+0x04c00   0x00010     =====L  =====L  =====L  =====L  =====L     =====L  =====L  =====L  =====L  =====L     =====V  =====V  =====V  =====V  =====V      16
+0x04c10   0x00350     ######  ######  =====N  =====N  =====N     ######  ######  =====S  =====S  =====S     =====V  =====V  =====V  =====V  =====V     848
+0x04f60   0x000a0     ######  ######  ######  =====O  =====O     ######  ######  =====S  =====S  =====S     =====V  =====V  =====V  =====V  =====V     160
+0x05000   0x00060     =====L  =====L  ######  =====O  =====O     ######  ######  =====S  =====S  =====S     =====V  =====V  =====V  =====V  =====V      96
+0x05060   0x00030     ######  ######  ######  =====O  =====O     ######  ######  =====S  =====S  =====S     =====V  =====V  =====V  =====V  =====V      48
+0x05090   0x00370     ######  ######  ######  =====O  =====O     ######  ######  =====S  =====S  =====S     =====V  =====V  =====X  =====X  =====X     880
+0x05400   0x00030     =====L  =====L  ######  =====O  =====O     ######  ######  =====S  =====S  =====S     =====V  =====V  =====V  =====V  =====V      48
+0x05430   0x00fe0     ######  ######  ######  =====O  =====O     ######  ######  =====S  =====S  =====S     =====V  =====V  =====V  =====V  =====V     992 +  3k
+0x06410   0x00960     ######  ######  ######  =====O  =====O     ######  ######  =====S  =====S  =====S     ######  ######  ######  =====Y  =====Y     352 +  2k
+0x06d70   0x00290     ######  ######  ######  =====O  =====O     ######  ######  =====S  =====S  =====S     ######  ######  ######  ######  ######     656
+0x07000   0x00170     ######  ######  ######  =====O  =====O     +Z02cQ  +W034R  =====S  =====S  =====S     ######  ######  ######  =====Y  =====Y     368
+0x07170   0x00010     ######  ######  ######  =====O  =====O     ######  +W034R  =====S  =====S  =====S     ######  ######  ######  =====Y  =====Y      16
+0x07180   0x00020     ######  ######  ######  =====O  =====O     ######  +W034R  =====S  =====S  =====S     ######  ######  ######  ######  ######      32
+0x071a0   0x00260     ######  ######  ######  =====O  =====O     ######  ######  =====S  =====S  =====S     ######  ######  ######  ######  ######     608
+0x07400   0x00150     ######  ######  ######  =====O  =====O     ######  ######  =====S  =====S  =====S     ######  ######  ######  =====Y  =====Y     336
+0x07550   0x002b0     ######  ######  ######  =====O  =====O     ######  ######  =====S  =====S  =====S     ######  ######  ######  ######  ######     688
+0x07800   0x008a0     ######  ######  ######  =====O  =====O     ######  ######  =====S  =====S  =====S     ######  ######  ######  =====Y  =====Y     160 +  2k
+0x080a0   0x00760     ######  ######  ######  =====O  =====O     ######  ######  =====S  =====S  =====S     ######  ######  ######  ######  ######     864 +  1k
+0x08800   0x00010     ######  ######  ######  =====O  =====O     +X040Q  ######  =====S  =====S  =====S     ######  ######  ######  ######  ######      16
+0x08810   0x007f0     ######  ######  ######  =====O  =====O     ######  ######  =====S  =====S  =====S     ######  ######  ######  ######  ######    1008 +  1k
+0x09000   0x00400     ######  ######  ######  ======  ======     OOOOOO  ######  OOOOOO  OOOOOO  OOOOOO     ######  ######  ######  ######  ######            1k
+0x09400   0x00400     ######  ######  OOOOOO  OOOOOO  OOOOOO     OOOOOO  OOOOOO  OOOOOO  OOOOOO  OOOOOO     ######  ######  ######  ######  ######            1k
+0x09800   0x00400     OOOOOO  OOOOOO  OOOOOO  OOOOOO  OOOOOO     OOOOOO  OOOOOO  OOOOOO  OOOOOO  OOOOOO     ######  ######  ######  ######  ######            1k
+0x09c00   0x00170     OOOOOO  OOOOOO  OOOOOO  OOOOOO  OOOOOO     OOOOOO  OOOOOO  OOOOOO  OOOOOO  OOOOOO     ######  ######  ######  ######  +++++Z     368
+0x09d70   0x00690     OOOOOO  OOOOOO  OOOOOO  OOOOOO  OOOOOO     OOOOOO  OOOOOO  OOOOOO  OOOOOO  OOOOOO     ######  ######  ######  ######  ######     656 +  1k
+0x0a400   0x001a0     OOOOOO  OOOOOO  OOOOOO  OOOOOO  OOOOOO     OOOOOO  OOOOOO  OOOOOO  OOOOOO  OOOOOO     ######  +++++W  ######  ######  ######     416
+0x0a5a0   0x02260     OOOOOO  OOOOOO  OOOOOO  OOOOOO  OOOOOO     OOOOOO  OOOOOO  OOOOOO  OOOOOO  OOOOOO     ######  ######  ######  ######  ######     608 +  8k
+0x0c800   0x00010     OOOOOO  OOOOOO  OOOOOO  OOOOOO  OOOOOO     OOOOOO  OOOOOO  OOOOOO  OOOOOO  OOOOOO     ######  ######  +++++X  ######  ######      16
+0x0c810   0x003f0     OOOOOO  OOOOOO  OOOOOO  OOOOOO  OOOOOO     OOOOOO  OOOOOO  OOOOOO  OOOOOO  OOOOOO     ######  ######  ######  ######  ######    1008
+0x0cc00   0x00400     OOOOOO  OOOOOO  OOOOOO  OOOOOO  OOOOOO     OOOOOO  OOOOOO  OOOOOO  OOOOOO  OOOOOO     ######  ######  ######  OOOOOO  ######            1k
+0x0d000   0x0b000     OOOOOO  OOOOOO  OOOOOO  OOOOOO  OOOOOO     OOOOOO  OOOOOO  OOOOOO  OOOOOO  OOOOOO     OOOOOO  OOOOOO  OOOOOO  OOOOOO  OOOOOO           44k
+0x18000   0x00030     ======  ======  ======  ======  ======     ======  ======  ======  ======  ======     ======  ======  ======  ======  ======      48
+0x18030   0x00010     =====L  =====L  =====N  =====N  =====N     =====L  =====L  =====N  =====N  =====N     =====V  =====V  ######  =====Y  =====Y      16
+0x18040   0x000b0     =====L  =====L  =====N  =====N  =====N     =====Q  =====Q  =====S  =====S  =====S     =====V  =====V  ######  =====Y  =====Y     176
+0x180f0   0x00310     ######  ######  ######  ######  ######     ######  ######  ######  ######  ######     ######  ######  ######  ######  ######     784
+
+
+Per-axis comparison:
+
+gimbal model:         G4S     G4S     Mini3D  Mini3D  Mini3D
+firmware versions:    1.24    1.25    1.12    1.14    1.15
+
+offset    length      0[0]:V  1[0]:W  2[0]:X  3[0]:Y  4[0]:Z   bytes + KB
+0x00000   0x00400     ######  ######  ######  ======  ======            1k
+0x00400   0x030e0     ======  ======  ======  ======  ======     224 + 12k
+0x034e0   0x00320     ######  ######  ======  ======  ======     800
+0x03800   0x01060     ======  ======  ======  ======  ======      96 +  4k
+0x04860   0x003a0     ######  ######  ######  ======  ======     928
+0x04c00   0x00010     ======  ======  ======  ======  ======      16
+0x04c10   0x00350     ######  ######  ======  ======  ======     848
+0x04f60   0x000a0     ######  ######  ######  ======  ======     160
+0x05000   0x00060     =====V  =====V  ######  =====Y  =====Y      96
+0x05060   0x003a0     ######  ######  ######  ======  ======     928
+0x05400   0x00030     =====V  =====V  ######  =====Y  =====Y      48
+0x05430   0x03fd0     ######  ######  ######  ======  ======     976 + 15k
+0x09400   0x00400     ######  ######  OOOOOO  OOOOOO  OOOOOO            1k
+0x09800   0x0e800     OOOOOO  OOOOOO  OOOOOO  OOOOOO  OOOOOO           58k
+0x18000   0x00030     ======  ======  ======  ======  ======      48
+0x18030   0x000c0     =====V  =====V  =====X  =====X  =====X     192
+0x180f0   0x00310     ######  ######  ######  ######  ######     784
+
+gimbal model:         G4S     G4S     Mini3D  Mini3D  Mini3D
+firmware versions:    1.24    1.25    1.12    1.14    1.15
+
+offset    length      0[1]:V  1[1]:W  2[1]:X  3[1]:Y  4[1]:Z   bytes + KB
+0x00000   0x00400     ######  ######  ======  ======  ======            1k
+0x00400   0x030e0     ======  ======  ======  ======  ======     224 + 12k
+0x034e0   0x00320     ######  ######  ======  ======  ======     800
+0x03800   0x01060     ======  ======  ======  ======  ======      96 +  4k
+0x04860   0x003a0     ######  ######  ======  ======  ======     928
+0x04c00   0x00010     ======  ======  ======  ======  ======      16
+0x04c10   0x043f0     ######  ######  ======  ======  ======    1008 + 16k
+0x09000   0x00400     OOOOOO  ######  OOOOOO  OOOOOO  OOOOOO            1k
+0x09400   0x0ec00     OOOOOO  OOOOOO  OOOOOO  OOOOOO  OOOOOO           59k
+0x18000   0x00030     ======  ======  ======  ======  ======      48
+0x18030   0x000c0     =====V  =====V  =====X  =====X  =====X     192
+0x180f0   0x00310     ######  ######  ######  ######  ######     784
+
+gimbal model:         G4S     G4S     Mini3D  Mini3D  Mini3D
+firmware versions:    1.24    1.25    1.12    1.14    1.15
+
+offset    length      0[2]:V  1[2]:W  2[2]:X  3[2]:Y  4[2]:Z   bytes + KB
+0x00000   0x00400     ######  ######  ######  ######  ######            1k
+0x00400   0x04c90     ======  ======  ======  ======  ======     144 + 19k
+0x05090   0x00370     =====V  =====V  =====X  =====X  =====X     880
+0x05400   0x01010     ======  ======  ======  ======  ======      16 +  4k
+0x06410   0x00960     ######  ######  ######  ======  ======     352 +  2k
+0x06d70   0x00290     ######  ######  ######  ######  ######     656
+0x07000   0x00180     ######  ######  ######  ======  ======     384
+0x07180   0x00280     ######  ######  ######  ######  ######     640
+0x07400   0x00150     ######  ######  ######  ======  ======     336
+0x07550   0x002b0     ######  ######  ######  ######  ######     688
+0x07800   0x008a0     ######  ######  ######  ======  ======     160 +  2k
+0x080a0   0x04b60     ######  ######  ######  ######  ######     864 + 18k
+0x0cc00   0x00400     ######  ######  ######  OOOOOO  ######            1k
+0x0d000   0x0b000     OOOOOO  OOOOOO  OOOOOO  OOOOOO  OOOOOO           44k
+0x18000   0x00030     ======  ======  ======  ======  ======      48
+0x18030   0x000c0     =====V  =====V  ######  =====Y  =====Y     192
+0x180f0   0x00310     ######  ######  ######  ######  ######     784
