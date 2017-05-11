@@ -199,6 +199,11 @@ class GimbalPort:
             self.setParam(target=2, number=0x67, value=1)
             self.setParam(target=2, number=0x08, value=0)
 
+    def storeCalibrationAngle(self, num, targets=axes):
+        for target in targets:
+            p = fyproto.Packet(target=target, command=0x0c, data=struct.pack('B', num))
+            self.transaction(p)
+
     def saveParams(self, targets=axes, timeout=None, retries=None):
         for target in targets:
             p = fyproto.Packet(target=target, command=0x05, data=b'\x00')

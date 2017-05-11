@@ -24,7 +24,7 @@ SHORT_FORM = 0x5aa5
 #   cmd09  Unknown get, 12 bytes
 #   cmd0a
 #   cmd0b  Init PC control handshake
-#   cmd0c
+#   cmd0c  Capture center angles
 #   cmd0d  IMU data?
 
 class Packet:
@@ -93,8 +93,7 @@ class PacketReceiver:
 
             calc_crc = self.packetClass.crc(framing, header + data)
             if rx_crc != calc_crc:
-                if self.verbose:
-                    print("CRC mismatch, received %04x and expected %04x" % (rx_crc, calc_crc))
+                print("CRC mismatch, received %04x and expected %04x" % (rx_crc, calc_crc))
                 continue
 
             yield Packet(command, framing, target, data)

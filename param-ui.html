@@ -59,7 +59,7 @@ function uiSetup() {
         chart.addTimeSeries(series[1], { strokeStyle: 'rgba(96, 255, 96, 1)', lineWidth: 3 });
         chart.addTimeSeries(series[2], { strokeStyle: 'rgba(96, 96, 255, 1)', lineWidth: 3 });
 
-        chart.streamTo(canvas, 500);
+        chart.streamTo(canvas, 0);
     });
 
     document.querySelectorAll('output.param').forEach( function(output) {
@@ -107,11 +107,6 @@ label.motors {
     display: block;
 }
 
-canvas.param {
-    width: 700px;
-    height: 150px;
-}
-
 canvas.param + label {
     position: absolute;
     left: 710px;
@@ -136,15 +131,21 @@ div.columns {
     position: relative;
 }
 
-div.left-column {
+div.column-0 {
     position: absolute;
     left: 0;
     top: 0;
 }
 
-div.right-column {
+div.column-1 {
     position: absolute;
     left: 820px;
+    top: 0;
+}
+
+div.column-2 {
+    position: absolute;
+    left: 1640px;
     top: 0;
 }
 
@@ -155,30 +156,44 @@ div.right-column {
 
 <label class="motors"><input class="motors" type="checkbox">Enable Motors</label>
 
-<div class="columns"><div class="left-column">
+<div class="columns"><div class="column-0">
 
-<div><canvas class="param" data-param="0x02"></canvas><label><div> 02 </div> </label></div>
-<div><canvas class="param" data-param="0x03"></canvas><label><div> 03 </div> pitch error? </label></div>
-<div><canvas class="param" data-param="0x04"></canvas><label><div> 04 </div> Angular rate (gyro) </label></div>
-<div><canvas class="param" data-param="0x06"></canvas><label><div> 06 </div> </label></div>
-<div><canvas class="param" data-param="0x07"></canvas><label><div> 07 </div> </label></div>
+<div><canvas class="param" width="700" height="150" data-param="0x04"></canvas><label><div> 04 </div> Angular rate (gyro) </label></div>
+<div><canvas class="param" width="700" height="150" data-param="0x05"></canvas><label><div> 05 </div> </label></div>
+<div><canvas class="param" width="700" height="150" data-param="0x06"></canvas><label><div> 06 </div> </label></div>
+<div><canvas class="param" width="700" height="150" data-param="0x07"></canvas><label><div> 07 </div> </label></div>
 
-<div><canvas class="param" data-param="0x08"></canvas><label><div> 08 </div> Target heading </label></div>
+<div><canvas class="param" width="700" height="150" data-param="0x08"></canvas><label><div> 08 </div> Target heading </label></div>
 <div><input type="range" class="param" min="-32767" max="32767" value="0" data-param="0x08" data-target="0" /><output class="param" data-param="0x08" data-target="0"></output></div>
 <div><input type="range" class="param" min="-32767" max="32767" value="0" data-param="0x08" data-target="1" /><output class="param" data-param="0x08" data-target="1"></output></div>
 <div><input type="range" class="param" min="-32767" max="32767" value="0" data-param="0x08" data-target="2" /><output class="param" data-param="0x08" data-target="2"></output></div>
-<div><canvas class="param" data-param="0x09"></canvas><label><div> 09 </div> Angle (gyro) </label></div>
 
-</div><div class="right-column">
+<div><canvas class="param" width="700" height="150" data-param="0x09"></canvas><label><div> 09 </div> Angle (gyro) </label></div>
 
-<div><canvas class="param" data-param="0x28"></canvas><label><div> 28 </div> </label></div>
-<div><canvas class="param" data-param="0x2c"></canvas><label><div> 2C </div> Joint angles (processed encoder data) </label></div>
-<div><canvas class="param" data-param="0x48"></canvas><label><div> 48 </div> </label></div>
-<div><canvas class="param" data-param="0x4a"></canvas><label><div> 4A </div> </label></div>
-<div><canvas class="param" data-param="0x4c"></canvas><label><div> 4C </div> </label></div>
-<div><canvas class="param" data-param="0x66"></canvas><label><div> 66 </div> </label></div>
-<div><canvas class="param" data-param="0x6f"></canvas><label><div> 6F </div> </label></div>
-<div><canvas class="param" data-param="0x70"></canvas><label><div> 70 </div> </label></div>
+</div><div class="column-1">
+
+<div><canvas class="param" width="700" height="150" data-param="0x28"></canvas><label><div> 28 </div> </label></div>
+<div><canvas class="param" width="700" height="150" data-param="0x2c"></canvas><label><div> 2C </div> Joint angles (processed encoder data) </label></div>
+<div><canvas class="param" width="700" height="150" data-param="0x47"></canvas><label><div> 47 </div> </label></div>
+<div><canvas class="param" width="700" height="150" data-param="0x48"></canvas><label><div> 48 </div> </label></div>
+<div><canvas class="param" width="700" height="150" data-param="0x4a"></canvas><label><div> 4A </div> </label></div>
+
+</div><div class="column-2">
+
+<div><canvas class="param" width="700" height="150" data-param="0x4c"></canvas><label><div> 4C </div> </label></div>
+
+<div><canvas class="param" width="700" height="150" data-param="0x4D"></canvas><label><div> 4D </div> Gain / Center related? </label></div>
+<div><input type="range" class="param" min="0" max="6000" value="2900" data-param="0x4D" data-target="0" /><output class="param" data-param="0x4D" data-target="0"></output></div>
+<div><input type="range" class="param" min="0" max="6000" value="2900" data-param="0x4D" data-target="1" /><output class="param" data-param="0x4D" data-target="1"></output></div>
+<div><input type="range" class="param" min="0" max="6000" value="2900" data-param="0x4D" data-target="2" /><output class="param" data-param="0x4D" data-target="2"></output></div>
+
+<div><canvas class="param" width="700" height="150" data-param="0x64"></canvas><label><div> 64 </div> Motor phase offset calibration? </label></div>
+<div><input type="range" class="param" min="0" max="6000" value="1600" data-param="0x64" data-target="0" /><output class="param" data-param="0x64" data-target="0"></output></div>
+<div><input type="range" class="param" min="0" max="6000" value="2100" data-param="0x64" data-target="1" /><output class="param" data-param="0x64" data-target="1"></output></div>
+<div><input type="range" class="param" min="0" max="6000" value="2600" data-param="0x64" data-target="2" /><output class="param" data-param="0x64" data-target="2"></output></div>
+
+<div><canvas class="param" width="700" height="150" data-param="0x6f"></canvas><label><div> 6F </div> Motor power related</label></div>
+<div><canvas class="param" width="700" height="150" data-param="0x70"></canvas><label><div> 70 </div> Motor power related</label></div>
 
 </div></div>
 
