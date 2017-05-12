@@ -195,9 +195,8 @@ class GimbalPort:
             self.send(fyproto.Packet(target=t, command=0x03, data=struct.pack('B', enable)))
 
         if enable:
-            # Unknown, this init happens in the windows app right after enabling motors
+            # Unknown
             self.setParam(target=2, number=0x67, value=1)
-            self.setParam(target=2, number=0x08, value=0)
 
     def storeCalibrationAngle(self, num, targets=axes):
         for target in targets:
@@ -224,6 +223,6 @@ class GimbalPort:
     def getVectorParam(self, number, targets=axes, timeout=None, retries=None):
         return tuple(self.getParam(t, number, timeout=timeout, retries=retries) for t in targets)
 
-    def setVectorParam(self, number, vec, targets=axes):
+    def setVectorParam(self, number, value, targets=axes):
         for i, t in enumerate(targets):
-            self.setParam(t, number, vec[i])
+            self.setParam(t, number, value[i])
