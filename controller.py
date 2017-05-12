@@ -18,14 +18,14 @@
 # sending joystick packets.
 # 
 
-import evdev
-import threading
 import time
 import argparse
 import struct
+
 from fyproto import Packet
 from fyserial import GimbalPort
 from fysocketserver import run_server_thread
+from tinyjoy import deadzone, JoystickThread
 
 
 def controller(gimbal, js, hz=75.0, yaw_limits=(450, 3800), pitch_limits=(1000, 2040)):
@@ -93,14 +93,6 @@ def controller(gimbal, js, hz=75.0, yaw_limits=(450, 3800), pitch_limits=(1000, 
             command_pitch, command_pitch_speed))
 
 
-def deadzone(v, width=0.3):
-    if v > width/2:
-        return (v - width/2) / (1.0 - width)
-    if v < -width/2:
-        return (v + width/2) / (1.0 - width)
-    return 0
-
-
 def main():
     parser = argparse.ArgumentParser(description='Simple remote for the Feiyu Tech gimbal')
     parser.add_argument('--port', default='/dev/ttyAMA0')
@@ -109,50 +101,6 @@ def main():
     gimbal = GimbalPort(args.port, verbose=False)
     run_server_thread(gimbal)
     controller(gimbal, js)
-
-
-class JoystickThread(threading.Thread):
-    def __init__(self, device=None):
-        threading.Thread.__init__(self)
-        self.device = device or self._default_joystick()
-        self.axes = {}
-        self._pending = {}
-        for axis, info in self.device.capabilities().get(evdev.ecodes.EV_ABS, []):
-            self.axes[axis] = (info, [None])
-        self.setDaemon(True)
-        self.start()
-
-    def _default_joystick(self):
-        """Return the first (sorted) device with an absolute X axis."""
-        for fn in sorted(evdev.list_devices()):
-            device = evdev.InputDevice(fn)
-            for axis, info in device.capabilities().get(evdev.ecodes.EV_ABS, []):
-                if axis == evdev.ecodes.ABS_X:
-                    return device
-        raise IOError('No joystick device found')
-
-    def run(self):
-        for event in self.device.read_loop():
-           evc = evdev.categorize(event)
-           if isinstance(evc, evdev.AbsEvent):
-               self._pending[event.code] = event.value
-           elif isinstance(evc, evdev.KeyEvent):
-               self.onKey(evc)
-           elif isinstance(evc, evdev.SynEvent):
-               for axis, value in self._pending.items():
-                   self.axes[axis][1][0] = value
-               self._pendingValues = {}
-
-    def onKey(self, event):
-        print(event)
-
-    def state(self):
-        s = {}
-        for axis, (info, box) in self.axes.items():
-            if box[0] is not None:
-                mapped = (box[0] - info.min) / (info.max - info.min)
-                s[evdev.ecodes.ABS[axis].lower().split('_')[1]] = (mapped - 0.5) * 2.0
-        return s
 
 
 if __name__ == '__main__':
