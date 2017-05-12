@@ -8,6 +8,8 @@
 #   mapped to yaw/pitch speed control, with the control
 #   software here tracking angles and applying angle limits.
 #
+# - Also runs a websocket server for live poking at parameters.
+#
 # * Tested with the 1.15 "rocker position mode" firmware only!
 #
 # We control yaw by turning off the heading follow loop on
@@ -23,6 +25,7 @@ import argparse
 import struct
 from fyproto import Packet
 from fyserial import GimbalPort
+from fysocketserver import run_server_thread
 
 
 def controller(gimbal, js, hz=75.0, yaw_limits=(450, 3800), pitch_limits=(1000, 2040)):
@@ -32,10 +35,8 @@ def controller(gimbal, js, hz=75.0, yaw_limits=(450, 3800), pitch_limits=(1000, 
     gimbal.waitConnect()
 
     # Turn off the yaw follow loop so we can control the speed directly.
-    # For pitch, we enable it so we can control pitch via joystick packets.
-    # The alternative pitch control code (with follow disabled) would always
-    # point at the center calibration coordinate. (Let's not change that dynamically)
-    gimbal.setVectorParam(number=0x63, value=(0,1,1))
+    # For pitch, we disable it so we can control pitch via joystick packets.
+    gimbal.setVectorParam(number=0x63, value=(0,0,0))
 
     # Zero the velocity output from the follow loop (relevant when the loop is off)
     gimbal.setVectorParam(number=0x03, value=(0,0,0))
@@ -67,7 +68,9 @@ def controller(gimbal, js, hz=75.0, yaw_limits=(450, 3800), pitch_limits=(1000, 
         # inputs from the PWM port. This packet has three int16 values.
         # First is pitch, the next two are yaw related so we won't be using
         # them in this configuration. The final byte is the joystick mode.
-        gimbal.send(Packet(target=1, command=0x01,
+        # Note that MCU1 does not accept joystick packets directly once the
+        # PC has attached to MCU0.
+        gimbal.send(Packet(target=2, command=0x01,
            data=struct.pack('<hhhB', int(command_pitch), 0, 0, 1)))
 
         # For this particular controller's purposes, our most appropriate
@@ -104,6 +107,7 @@ def main():
     args = parser.parse_args()
     js = JoystickThread()
     gimbal = GimbalPort(args.port, verbose=False)
+    run_server_thread(gimbal)
     controller(gimbal, js)
 
 
