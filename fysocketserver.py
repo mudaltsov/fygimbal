@@ -24,7 +24,7 @@ class SocketServer:
         return websockets.serve(self.handle_client, self.host, self.port)
 
     @asyncio.coroutine
-    def handle_client(websocket, path):
+    def handle_client(self, websocket, path):
         try:
             while True:
                 # Multiple commands can be batched into a websocket packet, one per line.
@@ -37,7 +37,7 @@ class SocketServer:
             return
 
     @asyncio.coroutine
-    def handle_command(websocket, tokens):
+    def handle_command(self, websocket, tokens):
         loop = asyncio.get_event_loop()
 
         if tokens[0] == 'set':

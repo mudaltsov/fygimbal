@@ -36,7 +36,7 @@ def controller(gimbal, js, hz=75.0, yaw_limits=(450, 3800), pitch_limits=(1000, 
 
     # Turn off the yaw follow loop so we can control the speed directly.
     # For pitch, we disable it so we can control pitch via joystick packets.
-    gimbal.setVectorParam(number=0x63, value=(0,0,0))
+    gimbal.setVectorParam(number=0x63, value=(0,1,0))
 
     # Zero the velocity output from the follow loop (relevant when the loop is off)
     gimbal.setVectorParam(number=0x03, value=(0,0,0))
