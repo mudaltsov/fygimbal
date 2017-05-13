@@ -2,7 +2,8 @@
 #
 # Prototype serial remote control.
 #
-# WORK IN PROGRESS... yaw is cool, pitch not working yet.
+# - For BINARY PATCHED firmware only.
+#   (Unpatched firmware will only have Yaw control)
 #
 # - Input via XBox 360 USB controller analog stick,
 #   mapped to yaw/pitch speed control, with the control
@@ -10,13 +11,6 @@
 #
 # - Also runs a websocket server for live poking at parameters.
 #
-# * Tested with the 1.15 "rocker position mode" firmware only!
-#
-# We control yaw by turning off the heading follow loop on
-# MCU0 and commanding the speed directly. The pitch speed
-# loop on MCU2 can't be turned off, so we command it by
-# sending joystick packets.
-# 
 
 import time
 import argparse
@@ -28,26 +22,16 @@ from fysocketserver import run_server_thread
 from tinyjoy import deadzone, JoystickThread
 
 
-def controller(gimbal, js, hz=75.0, yaw_limits=(450, 3800), pitch_limits=(1000, 2040)):
+def controller(gimbal, js, hz=75.0, yaw_limits=(450, 3800), pitch_limits=(-10000, 10000)):
 
-    # We must be ready to respond when the gimbal is powered on.
-    # Proceed only once we have a good connection.
-    gimbal.waitConnect()
+    # Follow loops all off
+    gimbal.setVectorParam(number=0x63, value=(0,0,0))
 
-    # Turn off the yaw follow loop so we can control the speed directly.
-    # For pitch, we disable it so we can control pitch via joystick packets.
-    gimbal.setVectorParam(number=0x63, value=(0,1,0))
-
-    # Zero the velocity output from the follow loop (relevant when the loop is off)
+    # Zero the initial velocity that we'll be setting later
     gimbal.setVectorParam(number=0x03, value=(0,0,0))
 
     # Turn motors on if they aren't already
     gimbal.setMotors(True)
-
-    # Integrate pitch locally, but keep yaw in param08 on MCU0.
-    # This is an offset from the center calibration position,
-    # measured in faux PWM microseconds.
-    command_pitch = (pitch_limits[0] + pitch_limits[1])/2
 
     while True:
         time.sleep(1.0/hz)
@@ -59,24 +43,15 @@ def controller(gimbal, js, hz=75.0, yaw_limits=(450, 3800), pitch_limits=(1000, 
         # In this example the Pitch input is speed, but we are commanding
         # the gimbal by sending a joystick packet (in faux-servo units)
         # which applies an offset to the target of its follow loop
-        command_pitch_speed = deadzone(controls.get('ry', 0)) * 200.0
-        command_pitch = min(pitch_limits[1], max(pitch_limits[0],
-            command_pitch + command_pitch_speed / hz))
-
-        # Send joystick packets. The yaw MCU0 doesn't respond to joystick
-        # packets, but it will forward them to MCU2 which treats them like
-        # inputs from the PWM port. This packet has three int16 values.
-        # First is pitch, the next two are yaw related so we won't be using
-        # them in this configuration. The final byte is the joystick mode.
-        # Note that MCU1 does not accept joystick packets directly once the
-        # PC has attached to MCU0.
-        gimbal.send(Packet(target=2, command=0x01,
-           data=struct.pack('<hhhB', int(command_pitch), 0, 0, 1)))
+        command_pitch_speed = int(pow(deadzone(controls.get('ry', 0)), 3.0) * -150)
 
         # For this particular controller's purposes, our most appropriate
         # absolute notion of yaw (relative to the robot body) will be the
         # magnetic encoder on the yaw axis.
         current_yaw = gimbal.getParam(number=0x2c, target=0)
+
+        # Current pitch vs the horizon comes from the gyro angle
+        current_pitch = gimbal.getParam(number=0x09, target=2)
 
         # Not perfect, but put the brakes on if we're out of yaw range
         if current_yaw <= yaw_limits[0] and command_yaw_speed < 0:
@@ -84,13 +59,14 @@ def controller(gimbal, js, hz=75.0, yaw_limits=(450, 3800), pitch_limits=(1000, 
         if current_yaw >= yaw_limits[1] and command_yaw_speed > 0:
             command_yaw_speed = 0
 
-        # Send latest yaw speed to MCU0
+        # Send latest yaw and pitch speeds
         gimbal.setParam(number=0x03, target=0, value=command_yaw_speed)
+        gimbal.setParam(number=0x03, target=2, value=command_pitch_speed)
 
         # Status!
-        print("Yaw: current=%d speed=%d  Pitch: command=%d speed=%d" % (
+        print("Yaw: current=%d speed=%d  Pitch: current=%d speed=%d" % (
             current_yaw, command_yaw_speed,
-            command_pitch, command_pitch_speed))
+            current_pitch, command_pitch_speed))
 
 
 def main():
