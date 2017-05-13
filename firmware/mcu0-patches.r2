@@ -9,4 +9,5 @@
 0x800cc46
 b 16
 "wa mov r0, #1; strb r0, [r4]"
-pi
+#pd
+
