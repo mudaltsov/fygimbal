@@ -1,2 +1,0 @@
-fygimbal-1: rx-data <Pkt-AA55 t=00 cmd=00 [00047d00]>
-fygimbal-1: tx-data <Pkt-AA55 t=00 cmd=01 []>
